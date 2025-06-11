@@ -8,7 +8,7 @@
     <link rel="icon" href="imagenes/favicon.png" type="image/png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Playfair+Display:wght@700&family=Work+Sans:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
@@ -19,10 +19,18 @@
             <a href="publicaciones.html">Publicaciones</a>
         </nav>
     </header>
-    <main class="container" style="text-align: center; padding-top: 2rem;">
-        <img src="imagenes/personalpic.jpg" alt="Pablo Torrado" style="width: 150px; height: 150px; border-radius: 50%; border: 5px solid var(--naranja-atomico); object-fit: cover;">
+    <main class="container hero">
+        <div class="profile-pic-frame">
+            <img src="imagenes/personalpic.jpg" alt="Pablo Torrado" class="profile-pic">
+        </div>
         <h1 style="font-size: 2.5rem;">Pablo Torrado Solo de Zaldívar</h1>
-        <h2 style="font-weight: normal;">Profesor de Español | Diseñador Curricular | Investigador</h2>
+        <div class="subtitle-container">
+            <span class="role-profesor">Profesor de Español</span>
+            <span class="separator">|</span>
+            <span class="role-disenador">Diseñador Curricular</span>
+            <span class="separator">|</span>
+            <span class="role-investigador">Investigador</span>
+        </div>
         <p style="max-width: 600px; margin: 1rem auto;">Bienvenido a mi laboratorio digital. Aquí encontrarás una combinación de mis proyectos de desarrollo, mis publicaciones académicas y mi experiencia en la enseñanza del español.</p>
         <a href="proyectos.html" style="display: inline-block; background-color: var(--naranja-atomico); color: var(--blanco); padding: 12px 25px; border-radius: 5px; text-decoration: none; font-weight: 700; margin-top: 1.5rem;">Ver mis Proyectos</a>
     </main>
