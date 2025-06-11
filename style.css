@@ -5,6 +5,20 @@
     font-style: normal;
 }
 
+@font-face {
+    font-family: 'Formacion';
+    src: url('fonts/35231909047.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Formacion';
+    src: url('fonts/30699900719.ttf') format('truetype');
+    font-weight: normal;
+    font-style: italic;
+}
+
 :root {
     --azul-pizarra: #2c3e50;
     --gris-claro: #f8f9fa;
@@ -167,9 +181,9 @@ h3 {
 }
 
 .education-card h3, .education-card p, .education-card ul li {
-    font-family: 'Gochi Hand', cursive;
+    font-family: 'Formacion', sans-serif;
     color: #333;
-    font-size: 1.2rem; 
+    font-size: 1.2rem;
 }
 
 .education-card h3 {
@@ -184,6 +198,11 @@ h3 {
 
 .education-card ul {
     list-style-type: '» ';
+}
+
+#formacion p {
+    font-family: 'Formacion', sans-serif;
+    font-size: 1.2rem;
 }
 
 
