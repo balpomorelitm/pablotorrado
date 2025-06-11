@@ -23,11 +23,12 @@
 
             <nav class="nav-menu">
                 <ul>
-                    <li><a href="index.html"><i class="fas fa-home"></i> <span>Inicio</span></a></li>
-                    <li><a href="curriculum.html"><i class="fas fa-file-alt"></i> <span>Currículum</span></a></li>
-                    <li><a href="proyectos.html"><i class="fas fa-laptop-code"></i> <span>Proyectos</span></a></li>
-                    <li class="active"><a href="publicaciones.html"><i class="fas fa-book-open"></i> <span>Publicaciones</span></a></li>
-                    <li><a href="contacto.html"><i class="fas fa-envelope"></i> <span>Contacto</span></a></li>
+                    <li><a href="index.html"><i class="fas fa-home"></i> <span data-en="Home">Inicio</span></a></li>
+                    <li><a href="curriculum.html"><i class="fas fa-file-alt"></i> <span data-en="Resume">Currículum</span></a></li>
+                    <li><a href="proyectos.html"><i class="fas fa-laptop-code"></i> <span data-en="Projects">Proyectos</span></a></li>
+                    <li class="active"><a href="publicaciones.html"><i class="fas fa-book-open"></i> <span data-en="Publications">Publicaciones</span></a></li>
+                    <li><a href="contacto.html"><i class="fas fa-envelope"></i> <span data-en="Contact">Contacto</span></a></li>
+                    <li><button id="lang-btn" class="lang-toggle">English version</button></li>
                 </ul>
             </nav>
         </div>
@@ -36,31 +37,32 @@
     <button type="button" class="mobile-nav-toggle d-xl-none"><span class="menu-icon">🟰</span></button>
 
     <main id="main">
-        <h1>Publicaciones y Ponencias</h1>
+        <h1 data-en="Publications and Talks">Publicaciones y Ponencias</h1>
         <div class="card-container">
             <div class="card">
-                <h3>¡A jugar se aprende! Juegos de mesa en español en eventos y en clase</h3>
-                <p><strong>Evento:</strong> Jornadas de ELE de Beijing (Junio 2025)</p>
-                <p><strong>Archivo adjunto:</strong> <a href="documentos/¡A jugar se aprende! Pekín 2025 Pablo Torrado.pdf" download>Descargar PDF</a></p>
+                <h3 data-en="Learning is a game! Board games in Spanish at events and in the classroom">¡A jugar se aprende! Juegos de mesa en español en eventos y en clase</h3>
+                <p data-en="Event: ELE Conference Beijing (June 2025)"><strong>Evento:</strong> Jornadas de ELE de Beijing (Junio 2025)</p>
+                <p data-en="Attachment: "><strong>Archivo adjunto:</strong> <a href="documentos/¡A jugar se aprende! Pekín 2025 Pablo Torrado.pdf" download data-en="Download PDF">Descargar PDF</a></p>
             </div>
             <div class="card">
-                <h3>Del glosario a Anki: adaptación del léxico de un curso a tarjetas enriquecidas con Anki e IA</h3>
-                <p><strong>Evento:</strong> Jornadas De Formación Del Profesorado De ELE, Universidad de Hong Kong (2023)</p>
-                <p><strong>Archivos adjuntos:</strong> <a href="documentos/Jornadas HKU 2023 Pablo Torrado.zip" download>Descargar ZIP</a></p>
+                <h3 data-en="From glossary to Anki: adapting a course's lexicon to enriched flashcards with Anki and AI">Del glosario a Anki: adaptación del léxico de un curso a tarjetas enriquecidas con Anki e IA</h3>
+                <p data-en="Event: ELE Teacher Training Conference, University of Hong Kong (2023)"><strong>Evento:</strong> Jornadas De Formación Del Profesorado De ELE, Universidad de Hong Kong (2023)</p>
+                <p data-en="Attachments: "><strong>Archivos adjuntos:</strong> <a href="documentos/Jornadas HKU 2023 Pablo Torrado.zip" download data-en="Download ZIP">Descargar ZIP</a></p>
             </div>
             <div class="card">
-                <h3>Camina Bangkok: un proyecto para crear audioguías para móviles</h3>
-                <p><strong>Evento:</strong> Jornadas ELE Bangkok, Chulalongkorn University (Enero 2020)</p>
-                <p><strong>Archivo adjunto:</strong> <a href="documentos/Camina Bangkok.pdf" download>Descargar PDF</a></p>
+                <h3 data-en="Walk Bangkok: a project to create mobile audio guides">Camina Bangkok: un proyecto para crear audioguías para móviles</h3>
+                <p data-en="Event: ELE Conference Bangkok, Chulalongkorn University (January 2020)"><strong>Evento:</strong> Jornadas ELE Bangkok, Chulalongkorn University (Enero 2020)</p>
+                <p data-en="Attachment: "><strong>Archivo adjunto:</strong> <a href="documentos/Camina Bangkok.pdf" download data-en="Download PDF">Descargar PDF</a></p>
             </div>
             <div class="card">
-                <h3>APPrendizaje móvil: cómo, cuándo y por qué usar flashcards digitales para la adquisición del léxico</h3>
-                <p><strong>Evento:</strong> Seminario web – EnClaveEle (2018)</p>
-                <p><em>(Sin archivos adjuntos)</em></p>
+                <h3 data-en="Mobile APP-renticeship: how, when, and why to use digital flashcards for vocabulary acquisition">APPrendizaje móvil: cómo, cuándo y por qué usar flashcards digitales para la adquisición del léxico</h3>
+                <p data-en="Event: Webinar – EnClaveEle (2018)"><strong>Evento:</strong> Seminario web – EnClaveEle (2018)</p>
+                <p><em data-en="(No attachments)">(Sin archivos adjuntos)</em></p>
             </div>
         </div>
     </main>
 
+    <script src="lang-toggle.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const mobileNavToggle = document.querySelector('.mobile-nav-toggle');
