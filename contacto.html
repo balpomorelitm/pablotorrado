@@ -5,9 +5,49 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contacto - Pablo Torrado</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/e396b3a936.js" crossorigin="anonymous"></script>
+    <style>
+        /* Estilos específicos para la página de contacto */
+        .contact-card {
+            background: var(--blanco);
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            padding: 2rem 3rem;
+            max-width: 600px;
+            margin: 2rem auto;
+        }
+        .contact-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .contact-list li {
+            display: flex;
+            align-items: center;
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+        }
+        .contact-list li a {
+            text-decoration: none;
+            color: var(--azul-pizarra);
+            transition: color 0.3s ease;
+        }
+        .contact-list li a:hover {
+            color: var(--naranja-atomico);
+        }
+        .contact-icon {
+            font-size: 1.5rem;
+            color: var(--naranja-atomico);
+            width: 40px; /* Ancho fijo para alinear los iconos */
+            text-align: center;
+            margin-right: 20px;
+        }
+        .linkedin-icon {
+            width: 28px;
+            height: 28px;
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -20,10 +60,28 @@
         </nav>
     </header>
     <main class="container">
-        <h1>Contacto</h1>
-        <div class="card">
-            <p>Puedes contactarme a través de mi correo electrónico: <a href="mailto:tuemail@ejemplo.com">tuemail@ejemplo.com</a></p>
-            <p>O encontrarme en redes sociales como LinkedIn (¡recuerda añadir el enlace!).</p>
+        <h1>Hablemos</h1>
+        <div class="contact-card">
+            <ul class="contact-list">
+                <li>
+                    <div class="contact-icon">
+                        <i class="fa-solid fa-envelope"></i>
+                    </div>
+                    <a href="mailto:pablot@hku.hk">pablot@hku.hk</a>
+                </li>
+                <li>
+                    <div class="contact-icon">
+                        <img src="imagenes/linkedicon.png" alt="LinkedIn Icono" class="linkedin-icon">
+                    </div>
+                    <a href="https://www.linkedin.com/in/pablotorradosolo" target="_blank" rel="noopener noreferrer">linkedin.com/in/pablotorradosolo</a>
+                </li>
+                <li>
+                    <div class="contact-icon">
+                        <i class="fa-solid fa-phone"></i>
+                    </div>
+                    <a href="tel:+85270752468">+852 7075 2468</a>
+                </li>
+            </ul>
         </div>
     </main>
 </body>
