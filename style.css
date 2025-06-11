@@ -24,6 +24,11 @@ body {
 }
 
 /* --- Cabecera y Navegación --- */
+/*
+------------------------------------
+Estilos antiguos del encabezado superior
+comentados por la nueva navegación lateral
+------------------------------------
 header {
     background-color: var(--blanco);
     padding: 1rem 0;
@@ -73,6 +78,7 @@ nav a.active::after {
 nav a:hover, nav a.active {
     color: var(--azul-pizarra);
 }
+*/
 
 /* --- Contenedores y Títulos --- */
 .container {
@@ -312,4 +318,132 @@ h3 {
 .separator {
     color: #ccc;
     font-size: 1.5rem;
+}
+
+/*
+====================================
+Estilos para la Barra de Navegación Lateral
+====================================
+*/
+
+/* --- Estructura General --- */
+body {
+  transition: background-color 0.3s, color 0.3s;
+}
+
+#header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 300px;
+  transition: all 0.5s;
+  z-index: 9997;
+  padding: 0 15px;
+  background: var(--azul-pizarra);
+  overflow-y: auto;
+}
+
+#main {
+  margin-left: 300px;
+}
+
+/* --- Perfil en la Barra Lateral --- */
+#header .profile img {
+  margin: 15px auto;
+  display: block;
+  width: 120px;
+  border: 8px solid #3e5369;
+}
+
+#header .profile h1 {
+  font-size: 24px;
+  margin: 0;
+  padding: 0;
+  font-weight: 600;
+  text-align: center;
+  font-family: var(--font-title);
+}
+
+#header .profile h1 a, #header .profile h1 a:hover {
+  color: #fff;
+  text-decoration: none;
+}
+
+/* --- Menú de Navegación --- */
+.nav-menu {
+  padding-top: 30px;
+}
+
+.nav-menu * {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nav-menu > ul > li {
+  position: relative;
+  white-space: nowrap;
+}
+
+.nav-menu a {
+  display: flex;
+  align-items: center;
+  color: #a8b9c9;
+  padding: 12px 15px;
+  margin-bottom: 8px;
+  transition: 0.3s;
+  font-size: 15px;
+}
+
+.nav-menu a i {
+  font-size: 24px;
+  padding-right: 8px;
+  color: #6f8ba4;
+}
+
+.nav-menu a:hover, .nav-menu .active > a, .nav-menu li:hover > a {
+  text-decoration: none;
+  color: #fff;
+}
+
+.nav-menu a:hover i, .nav-menu .active > a i, .nav-menu li:hover > a i {
+  color: var(--naranja-atomico);
+}
+
+/* --- Navegación en Móviles --- */
+.mobile-nav-toggle {
+  position: fixed;
+  right: 15px;
+  top: 15px;
+  z-index: 9998;
+  border: 0;
+  background: none;
+  font-size: 24px;
+  transition: all 0.4s;
+  outline: none !important;
+  line-height: 1;
+  cursor: pointer;
+  text-align: right;
+  color: var(--naranja-atomico);
+  padding: 6px 10px;
+  border-radius: 50%;
+  background: rgba(44, 62, 80, 0.9);
+}
+
+.mobile-nav-active {
+  overflow: hidden;
+}
+
+.mobile-nav-active #header {
+  left: 0;
+}
+
+@media (max-width: 1199px) {
+  #header {
+    left: -300px;
+  }
+  #main {
+    margin-left: 0;
+  }
 }
