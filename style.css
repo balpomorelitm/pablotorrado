@@ -379,8 +379,8 @@ Estilos Mejorados para la Barra de Navegaci\u00f3n Lateral
   padding-bottom: 20px; /* Borde m\u00e1s grueso abajo, estilo polaroid */
   background: white;
   box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-  /* Drastically reduce the sidebar photo size */
-  width: 14px; /* original 140px -> reduced over 90% */
+  /* Increase sidebar photo size by 40% */
+  width: 20px; /* original 14px -> 40% larger */
   transform: rotate(-4deg); /* Ligeramente ladeado */
   transition: all 0.3s ease-in-out;
 }
