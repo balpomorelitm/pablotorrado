@@ -3,63 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portafolio de Proyectos</title>
-    <style>
-        /* Estilos básicos para que se vea ordenado */
-        body { font-family: sans-serif; background-color: #f4f4f9; color: #333; }
-        .container { max-width: 800px; margin: 2rem auto; padding: 1rem; }
-        .repo { background-color: #fff; border: 1px solid #ddd; border-radius: 8px; padding: 1rem; margin-bottom: 1rem; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
-        .repo h3 { margin-top: 0; }
-        .repo a { text-decoration: none; color: #0366d6; font-size: 1.2rem; }
-        .repo p { margin-bottom: 0; }
-    </style>
+    <title>Pablo Torrado - Portafolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Lora:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-
-    <div class="container">
-        <h1>Mis Repositorios en GitHub</h1>
-        <div id="repos-list">
-            <p>Cargando repositorios...</p>
-        </div>
-    </div>
-
-    <script>
-        // --- CONFIGURACIÓN ---
-        // ¡¡IMPORTANTE!! Reemplaza esto con tu nombre de usuario de GitHub
-        const GITHUB_USERNAME = 'balpomoreli';
-
-        // --- LÓGICA ---
-        document.addEventListener('DOMContentLoaded', () => {
-            const listElement = document.getElementById('repos-list');
-            const apiUrl = `https://api.github.com/users/${GITHUB_USERNAME}/repos?sort=updated&direction=desc`;
-
-            fetch(apiUrl)
-                .then(response => response.json())
-                .then(repos => {
-                    // Limpiamos el mensaje de "Cargando..."
-                    listElement.innerHTML = ''; 
-
-                    // Iteramos sobre cada repositorio encontrado
-                    repos.forEach(repo => {
-                        // Creamos el HTML para cada repositorio
-                        const repoElement = document.createElement('div');
-                        repoElement.classList.add('repo');
-                        
-                        repoElement.innerHTML = `
-                            <h3><a href="${repo.html_url}" target="_blank">${repo.name}</a></h3>
-                            <p>${repo.description || 'Sin descripción.'}</p>
-                        `;
-                        
-                        // Añadimos el elemento del repositorio a la lista
-                        listElement.appendChild(repoElement);
-                    });
-                })
-                .catch(error => {
-                    console.error('Error al cargar los repositorios:', error);
-                    listElement.innerHTML = '<p>No se pudieron cargar los repositorios.</p>';
-                });
-        });
-    </script>
-
+    <header>
+        <nav>
+            <a href="index.html" class="active">Inicio</a>
+            <a href="curriculum.html">Currículum</a>
+            <a href="proyectos.html">Proyectos</a>
+            <a href="publicaciones.html">Publicaciones</a>
+            <a href="contacto.html">Contacto</a>
+        </nav>
+    </header>
+    <main class="container">
+        <section class="hero">
+            <img src="URL_DE_TU_FOTO_PROFESIONAL" alt="Pablo Torrado" class="profile-pic">
+            <h1>Pablo Torrado Solo de Zaldívar</h1>
+            <h2>Profesor de Español | Diseñador Curricular | Investigador en Lingüística Aplicada</h2>
+            <p class="intro">Bienvenido a mi laboratorio digital. Aquí encontrarás una combinación de mis proyectos de desarrollo web, mis publicaciones académicas y mi experiencia en la enseñanza del español como lengua extranjera.</p>
+            <a href="proyectos.html" class="cta-button">Ver mis Proyectos</a>
+        </section>
+    </main>
 </body>
 </html>
