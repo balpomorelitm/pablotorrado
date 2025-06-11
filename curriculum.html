@@ -7,7 +7,7 @@
     <title data-en="Resume - Pablo Torrado">Currículum - Pablo Torrado</title>
 
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Playfair+Display:wght@700&family=Work+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Playfair+Display:wght@700&family=Source+Code+Pro:wght@500&family=Work+Sans:wght@400;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Gochi+Hand&family=Special+Elite&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/e396b3a936.js" crossorigin="anonymous"></script>
     <link rel="icon" type="image/png" href="imagenes/favicon.png">
@@ -49,7 +49,7 @@
 
     <main id="main">
         <div class="main-header">
-            <h1>Currículum Vitae</h1>
+            <h1><span class="typed" data-typed-items="Currículum Vitae"></span></h1>
         </div>
         <h1 data-en="Resume">Currículum Vitae</h1>
 
@@ -196,14 +196,31 @@
     </main>
 
     <script src="lang-toggle.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+
     <script>
         document.addEventListener('DOMContentLoaded', function() {
+            // --- Sidebar Mobile Navigation (existing script) ---
             const mobileNavToggle = document.querySelector('.mobile-nav-toggle');
             if (mobileNavToggle) {
                 mobileNavToggle.addEventListener('click', function(e) {
                     document.body.classList.toggle('mobile-nav-active');
-                    const icon = this.querySelector(".menu-icon");
+                    const icon = this.querySelector('.menu-icon');
                     icon.textContent = icon.textContent === "🟰" ? "✖" : "🟰";
+                });
+            }
+
+            // --- NEW: Typewriter Effect Initialization ---
+            const typed = document.querySelector('.typed');
+            if (typed) {
+                let typed_strings = typed.getAttribute('data-typed-items');
+                typed_strings = typed_strings.split(',');
+                new Typed('.typed', {
+                    strings: typed_strings,
+                    loop: false,
+                    typeSpeed: 100,
+                    backSpeed: 50,
+                    backDelay: 2000
                 });
             }
         });

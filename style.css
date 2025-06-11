@@ -547,25 +547,31 @@ Estilos Mejorados para la Barra de Navegaci\u00f3n Lateral
 
 /*
 ====================================
-Nuevos Estilos (Cabecera Fija y Menú Activo)
+Redesigned Sticky Content Header
 ====================================
 */
 
-/* --- 1. Cabecera de Contenido Fija --- */
 .main-header {
   position: sticky;
   top: 0;
-  background-color: #1a1a1a;
+  background-color: #111; /* Dark background */
   color: #ffffff;
-  padding: 1rem 2rem;
+  padding: 1.5rem 2rem; /* Increased vertical padding */
   z-index: 900;
   box-shadow: 0 2px 5px rgba(0,0,0,0.2);
 }
 
 .main-header h1 {
   margin: 0;
-  font-size: 1.5rem;
-  font-family: var(--font-title);
+  font-family: 'Source Code Pro', monospace; /* Console-style font */
+  font-size: 2.5rem; /* Much larger font size */
+  font-weight: 500;
+}
+
+/* Blinking cursor effect for the typewriter */
+.typed-cursor {
+  font-size: 2.5rem;
+  color: var(--naranja-atomico);
 }
 
 /* --- 2. Nuevo Estilo para el Enlace Activo en la Barra Lateral --- */
