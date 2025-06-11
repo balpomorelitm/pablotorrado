@@ -432,6 +432,7 @@ Sidebar Refinements: Social Links & Language Switcher
 /* --- Simplified Social Links --- */
 .social-links {
   padding: 15px 0;
+  text-align: center;
 }
 .social-links a {
   font-size: 22px;
@@ -442,6 +443,13 @@ Sidebar Refinements: Social Links & Language Switcher
 .social-links a:hover {
   color: var(--naranja-atomico);
   transform: scale(1.2);
+}
+
+/* Make the email button bigger */
+.social-links .email {
+  font-size: 40px;
+  display: block;
+  margin: 0 auto;
 }
 
 /* --- Language Switcher Buttons --- */
