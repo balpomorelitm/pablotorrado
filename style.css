@@ -386,7 +386,24 @@ Estilos para la Barra de Navegación Lateral
   padding: 12px 15px;
   margin-bottom: 8px;
   transition: 0.3s;
-  font-size: 18px; 
+  font-size: 18px;
+}
+
+.nav-menu button.lang-toggle {
+  width: 100%;
+  background: none;
+  border: none;
+  color: #a8b9c9;
+  padding: 12px 15px;
+  margin-bottom: 8px;
+  text-align: left;
+  font-size: 18px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.nav-menu button.lang-toggle:hover {
+  color: #fff;
 }
 
 .nav-menu a i {
