@@ -3,6 +3,8 @@
 document.addEventListener('DOMContentLoaded', () => {
   const langBtn = document.getElementById('lang-btn');
   if (langBtn) {
+    const current = document.documentElement.getAttribute('lang') || 'es';
+    langBtn.textContent = current === 'es' ? 'English version' : 'En español';
     langBtn.addEventListener('click', toggleLanguage);
   }
 

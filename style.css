@@ -460,6 +460,25 @@ Estilos Mejorados para la Barra de Navegaci\u00f3n Lateral
   border-radius: 5px;
 }
 
+.nav-menu button.lang-toggle {
+  width: 100%;
+  background: none;
+  border: none;
+  color: #a8b9c9;
+  padding: 12px 15px;
+  margin-bottom: 8px;
+  text-align: left;
+  font-size: 15px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border-radius: 5px;
+}
+
+.nav-menu button.lang-toggle:hover {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.1);
+}
+
 .nav-menu a i {
   font-size: 20px; /* Iconos un poco m\u00e1s peque\u00f1os */
   padding-right: 10px;
