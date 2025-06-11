@@ -652,6 +652,7 @@ Main Content Wrapper
   font-family: 'Source Code Pro', monospace; /* Console-style font */
   font-size: 2.5rem; /* Much larger font size */
   font-weight: 500;
+  color: var(--blanco);
 }
 
 /* Blinking cursor effect for the typewriter */
