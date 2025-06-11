@@ -488,3 +488,19 @@ Estilos para la Barra de Navegación Lateral
     display: none;
   }
 }
+
+/* Mosaic of images on the homepage */
+.image-mosaic {
+  margin-top: 2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 10px;
+}
+
+.image-mosaic img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 5px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
