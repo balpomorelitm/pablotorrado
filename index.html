@@ -3,23 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pablo Torrado - Portafolio</title>
+    
+    <title>Inicio - Pablo Torrado</title>
+
     <link rel="stylesheet" href="style.css">
-    <link rel="icon" href="imagenes/favicon.png" type="image/png">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Playfair+Display:wght@700&family=Work+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/e396b3a936.js" crossorigin="anonymous"></script>
+    <link rel="icon" type="image/png" href="imagenes/favicon.png">
 </head>
+
 <body>
-    <header>
-        <nav>
-            <a href="index.html" class="active">Inicio</a>
-            <a href="curriculum.html">Currículum</a>
-            <a href="proyectos.html">Proyectos</a>
-            <a href="publicaciones.html">Publicaciones</a>
-        </nav>
+
+    <header id="header">
+        <div class="d-flex flex-column">
+            <div class="profile">
+                <img src="imagenes/personalpic.jpg" alt="Pablo Torrado" class="img-fluid rounded-circle">
+                <h1 class="text-light"><a href="index.html">Pablo Torrado</a></h1>
+            </div>
+
+            <nav class="nav-menu">
+                <ul>
+                    <li class="active"><a href="index.html"><i class="fas fa-home"></i> <span>Inicio</span></a></li>
+                    <li><a href="curriculum.html"><i class="fas fa-file-alt"></i> <span>Currículum</span></a></li>
+                    <li><a href="proyectos.html"><i class="fas fa-laptop-code"></i> <span>Proyectos</span></a></li>
+                    <li><a href="publicaciones.html"><i class="fas fa-book-open"></i> <span>Publicaciones</span></a></li>
+                    <li><a href="contacto.html"><i class="fas fa-envelope"></i> <span>Contacto</span></a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
-    <main class="container hero">
+
+    <button type="button" class="mobile-nav-toggle d-xl-none"><i class="fas fa-bars"></i></button>
+
+    <main id="main">
         <div class="profile-pic-frame">
             <img src="imagenes/personalpic.jpg" alt="Pablo Torrado" class="profile-pic">
         </div>
@@ -34,5 +50,19 @@
         <p style="max-width: 600px; margin: 1rem auto;">Bienvenido a mi laboratorio digital. Aquí encontrarás una combinación de mis proyectos de desarrollo, mis publicaciones académicas y mi experiencia en la enseñanza del español.</p>
         <a href="proyectos.html" style="display: inline-block; background-color: var(--naranja-atomico); color: var(--blanco); padding: 12px 25px; border-radius: 5px; text-decoration: none; font-weight: 700; margin-top: 1.5rem;">Ver mis Proyectos</a>
     </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileNavToggle = document.querySelector('.mobile-nav-toggle');
+            if (mobileNavToggle) {
+                mobileNavToggle.addEventListener('click', function(e) {
+                    document.body.classList.toggle('mobile-nav-active');
+                    this.classList.toggle('fa-bars');
+                    this.classList.toggle('fa-times');
+                });
+            }
+        });
+    </script>
+
 </body>
 </html>

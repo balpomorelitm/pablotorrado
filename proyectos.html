@@ -3,11 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Proyectos - Pablo Torrado</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
-
     
+    <title>Proyectos - Pablo Torrado</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Playfair+Display:wght@700&family=Work+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/e396b3a936.js" crossorigin="anonymous"></script>
+    <link rel="icon" type="image/png" href="imagenes/favicon.png">
     <style>
         /* Fondo animado y cambiante */
         body.proyectos-page {
@@ -111,17 +113,30 @@
 
     </style>
 </head>
-<body class="proyectos-page"> 
-    <header>
-        <nav>
-            <a href="index.html">Inicio</a>
-            <a href="curriculum.html">Currículum</a>
-            <a href="proyectos.html" class="active">Proyectos</a>
-            <a href="publicaciones.html">Publicaciones</a>
-            <a href="contacto.html">Contacto</a>
-        </nav>
+<body class="proyectos-page">
+
+    <header id="header">
+        <div class="d-flex flex-column">
+            <div class="profile">
+                <img src="imagenes/personalpic.jpg" alt="Pablo Torrado" class="img-fluid rounded-circle">
+                <h1 class="text-light"><a href="index.html">Pablo Torrado</a></h1>
+            </div>
+
+            <nav class="nav-menu">
+                <ul>
+                    <li><a href="index.html"><i class="fas fa-home"></i> <span>Inicio</span></a></li>
+                    <li><a href="curriculum.html"><i class="fas fa-file-alt"></i> <span>Currículum</span></a></li>
+                    <li class="active"><a href="proyectos.html"><i class="fas fa-laptop-code"></i> <span>Proyectos</span></a></li>
+                    <li><a href="publicaciones.html"><i class="fas fa-book-open"></i> <span>Publicaciones</span></a></li>
+                    <li><a href="contacto.html"><i class="fas fa-envelope"></i> <span>Contacto</span></a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
-    <main class="container">
+
+    <button type="button" class="mobile-nav-toggle d-xl-none"><i class="fas fa-bars"></i></button>
+
+    <main id="main">
         <h1>Mis Proyectos</h1>
 
         <div class="project-grid">
@@ -161,5 +176,19 @@
             
             </div>
     </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileNavToggle = document.querySelector('.mobile-nav-toggle');
+            if (mobileNavToggle) {
+                mobileNavToggle.addEventListener('click', function(e) {
+                    document.body.classList.toggle('mobile-nav-active');
+                    this.classList.toggle('fa-bars');
+                    this.classList.toggle('fa-times');
+                });
+            }
+        });
+    </script>
+
 </body>
 </html>
