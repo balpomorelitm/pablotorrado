@@ -15,31 +15,48 @@
 <body>
 
     <header id="header">
-    <div class="d-flex flex-column">
+        <div class="d-flex flex-column">
 
-        <div class="profile">
-            <div class="polaroid-frame">
-                <img src="imagenes/personalpic.jpg" alt="Pablo Torrado" class="img-fluid">
-            </div>
-            <h1 class="text-light"><a href="index.html">Pablo Torrado</a></h1>
-            
-            <div class="social-links text-center">
-                <a href="mailto:pablot@hku.hk" class="email">📧</a>
-                <a href="https://www.linkedin.com/in/pablotorradosolo" target="_blank" class="linkedin"><img src="imagenes/linkedicon.png" alt="LinkedIn" class="linkedin-icon"></a>
+            <div class="profile">
+                <img src="imagenes/personalpic.jpg" alt="Pablo Torrado" class="img-fluid profile-picture">
+                <h1 class="text-light"><a href="index.html">Pablo Torrado</a></h1>
+
+                <div class="social-links text-center">
+                    <a href="mailto:pablot@hku.hk" class="email"><i class="fas fa-envelope"></i></a>
+                    <a href="https://www.linkedin.com/in/pablotorradosolo" target="_blank" class="linkedin"><i class="fab fa-linkedin-in"></i></a>
                 </div>
-        </div>
+            </div>
 
-        <nav class="nav-menu">
-            <ul>
-                <li><a href="index.html"><i class="fas fa-home"></i> <span>Inicio</span></a></li>
-                <li><a href="curriculum.html"><i class="fas fa-file-alt"></i> <span>Currículum</span></a></li>
-                <li><a href="proyectos.html"><i class="fas fa-laptop-code"></i> <span>Proyectos</span></a></li>
-                <li class="active"><a href="publicaciones.html"><i class="fas fa-book-open"></i> <span>Publicaciones</span></a></li>
-                <li><button id="lang-btn" class="lang-toggle">English version</button></li>
-            </ul>
-        </nav>
-    </div>
-</header>
+            <nav class="nav-menu">
+                 <ul>
+                    <li class="lang-es"><a href="index.html"><span>Inicio</span></a></li>
+                    <li class="lang-es"><a href="curriculum.html"><span>Currículum</span></a></li>
+                    <li class="lang-es"><a href="proyectos.html"><span>Proyectos</span></a></li>
+                    <li class="lang-es"><a href="publicaciones.html"><span>Publicaciones</span></a></li>
+                    <li class="lang-es"><a href="contacto.html"><span>Contacto</span></a></li>
+                    
+                    <li class="lang-en"><a href="index.html"><span>Home</span></a></li>
+                    <li class="lang-en"><a href="resume.html"><span>Resume</span></a></li>
+                    <li class="lang-en"><a href="projects.html"><span>Projects</span></a></li>
+                    <li class="lang-en"><a href="publications.html"><span>Publications</span></a></li>
+                    <li class="lang-en"><a href="contact.html"><span>Contact</span></a></li>
+                </ul>
+            </nav>
+
+            <div class="mt-auto"></div>
+
+            <div class="language-switcher">
+                <button id="lang-es-btn" class="lang-button active">
+                    <svg width="20" height="15" viewBox="0 0 20 15"><path fill="#c60b1e" d="M0 0h20v5H0z"/><path fill="#ffc400" d="M0 5h20v5H0z"/><path fill="#c60b1e" d="M0 10h20v5H0z"/></svg>
+                    <span>ES</span>
+                </button>
+                <button id="lang-en-btn" class="lang-button">
+                    <svg width="20" height="15" viewBox="0 0 60 30"><clipPath id="a"><path d="M0 0v30h60V0z"/></clipPath><clipPath id="b"><path d="M30 15 60 0v30L30 15z"/></clipPath><path d="M0 0v30h60V0z" fill="#012169"/><path d="m0 0 60 30m0-30L0 30" stroke="#fff" stroke-width="6"/><path d="m0 0 60 30m0-30L0 30" clip-path="url(#b)" stroke="#C8102E" stroke-width="4"/><path d="M30 0v30M0 15h60" stroke="#fff" stroke-width="10"/><path d="M30 0v30M0 15h60" stroke="#C8102E" stroke-width="6"/></svg>
+                    <span>EN</span>
+                </button>
+            </div>
+        </div>
+    </header>
 
 
     <button type="button" class="mobile-nav-toggle"><span class="menu-icon" data-state="burger"><img src="imagenes/burguer.webp" alt="Men\u00fa" class="menu-icon-img"></span></button>
