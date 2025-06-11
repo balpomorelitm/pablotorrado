@@ -57,8 +57,8 @@
             if (mobileNavToggle) {
                 mobileNavToggle.addEventListener('click', function(e) {
                     document.body.classList.toggle('mobile-nav-active');
-                    this.classList.toggle('fa-bars');
-                    this.classList.toggle('fa-times');
+                    this.querySelector('i').classList.toggle('fa-bars');
+                    this.querySelector('i').classList.toggle('fa-times');
                 });
             }
         });
