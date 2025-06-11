@@ -1,3 +1,10 @@
+@font-face {
+    font-family: 'PixelSerif';
+    src: url('fonts/PixelSerif_16px_v02.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
 :root {
     --azul-pizarra: #2c3e50;
     --gris-claro: #f8f9fa;
@@ -227,4 +234,82 @@ h3 {
         margin: 0 auto 1rem;
         max-width: 200px;
     }
+}
+/* --- Rediseño de la Portada (Hero Section) --- */
+
+/* Contenedor principal de la portada */
+.hero {
+    text-align: center;
+    padding: 3rem 1rem;
+}
+
+/* Nuevo marco para la foto de perfil */
+.profile-pic-frame {
+    width: 200px;
+    height: 250px;
+    margin: 0 auto 2rem auto;
+    background: var(--blanco);
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    border: 1px solid #ddd;
+    transform: rotate(-3deg);
+    transition: all 0.3s ease-in-out;
+}
+
+.profile-pic-frame:hover {
+    transform: rotate(0deg) scale(1.05);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+}
+
+/* La foto dentro del marco */
+.profile-pic {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 0;
+    border: none;
+}
+
+/* Contenedor del subtítulo para alinear los roles */
+.subtitle-container {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+}
+
+/* Estilo base para cada rol */
+.subtitle-container span {
+    font-size: 1.2rem;
+    font-weight: 400;
+}
+
+/* Estilo para "Profesor de Español" */
+.role-profesor {
+    font-family: var(--font-title);
+    font-weight: 700;
+}
+
+/* Estilo para "Diseñador Curricular" */
+.role-disenador {
+    font-family: 'Work Sans', sans-serif;
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+/* Estilo para "Investigador" */
+.role-investigador {
+    font-family: 'PixelSerif', monospace;
+    font-size: 1.5rem;
+    padding-top: 4px;
+}
+
+/* Separador "|" */
+.separator {
+    color: #ccc;
+    font-size: 1.5rem;
 }
