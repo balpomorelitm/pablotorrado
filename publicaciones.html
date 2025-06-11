@@ -45,8 +45,9 @@
     <button type="button" class="mobile-nav-toggle d-xl-none"><span class="menu-icon">🟰</span></button>
 
     <main id="main">
-        <!-- Removed animated title header -->
-        <h1 data-en="Publications and Talks">Publicaciones y Ponencias</h1>
+        <div class="main-header">
+            <h1><span class="typed" data-typed-items="Publicaciones"></span></h1>
+        </div>
         <div class="card-container">
             <div class="card">
                 <h3 data-en="Learning is a game! Board games in Spanish at events and in the classroom">¡A jugar se aprende! Juegos de mesa en español en eventos y en clase</h3>
@@ -72,6 +73,7 @@
     </main>
 
     <script src="lang-toggle.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
@@ -82,6 +84,19 @@
                     document.body.classList.toggle('mobile-nav-active');
                     const icon = this.querySelector('.menu-icon');
                     icon.textContent = icon.textContent === "🟰" ? "✖" : "🟰";
+                });
+            }
+            // --- NEW: Typewriter Effect Initialization ---
+            const typed = document.querySelector('.typed');
+            if (typed) {
+                let typed_strings = typed.getAttribute('data-typed-items');
+                typed_strings = typed_strings.split(',');
+                new Typed('.typed', {
+                    strings: typed_strings,
+                    loop: false,
+                    typeSpeed: 100,
+                    backSpeed: 50,
+                    backDelay: 2000
                 });
             }
         });
