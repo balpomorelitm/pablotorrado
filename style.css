@@ -526,6 +526,7 @@ Estilos Mejorados para la Barra de Navegaci\u00f3n Lateral
   padding: 6px 10px;
   border-radius: 50%;
   background: rgba(44, 62, 80, 0.9);
+  display: none; /* Hidden on desktop */
 }
 
 .menu-icon-img {
@@ -548,6 +549,9 @@ Estilos Mejorados para la Barra de Navegaci\u00f3n Lateral
   }
   #main {
     margin-left: 0;
+  }
+  .mobile-nav-toggle {
+    display: block;
   }
 }
 /* Mosaic of images on the homepage */
