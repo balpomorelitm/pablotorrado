@@ -33,7 +33,7 @@
         </div>
     </header>
 
-    <button type="button" class="mobile-nav-toggle d-xl-none"><i class="fas fa-bars"></i></button>
+    <button type="button" class="mobile-nav-toggle d-xl-none"><span class="menu-icon">🟰</span></button>
 
     <main id="main">
         <h1>Publicaciones y Ponencias</h1>
@@ -67,8 +67,8 @@
             if (mobileNavToggle) {
                 mobileNavToggle.addEventListener('click', function(e) {
                     document.body.classList.toggle('mobile-nav-active');
-                    this.querySelector('i').classList.toggle('fa-bars');
-                    this.querySelector('i').classList.toggle('fa-times');
+                    const icon = this.querySelector(".menu-icon");
+                    icon.textContent = icon.textContent === "🟰" ? "✖" : "🟰";
                 });
             }
         });
