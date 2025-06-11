@@ -395,6 +395,20 @@ Estilos Mejorados para la Barra de Navegaci\u00f3n Lateral
   width: 100%;
 }
 
+/* Consistent sidebar photo animation */
+.profile-picture {
+  display: block;
+  max-width: 196px;
+  margin: 0 auto 10px;
+  transform: rotate(-4deg);
+  transition: transform 0.3s ease-in-out;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.profile-picture:hover {
+  transform: rotate(0deg) scale(1.05);
+}
+
 #header .profile h1 {
   font-size: 24px;
   margin: 0;
