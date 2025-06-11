@@ -5,11 +5,102 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Proyectos - Pablo Torrado</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="icon" href="imagenes/favicon.png" type="image/png">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+
+    
     <style>
+        /* Fondo animado y cambiante */
+        body.proyectos-page {
+            color: var(--gris-claro);
+            background: linear-gradient(45deg, #1d2b38, #2c3e50, #536f8a, #ff6b6b);
+            background-size: 400% 400%;
+            animation: gradient-flow 18s ease infinite;
+            overflow-x: hidden; /* Previene barras de desplazamiento horizontales */
+        }
+
+        @keyframes gradient-flow {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Sobrescribimos el color de los títulos para que sean legibles en el fondo oscuro */
+        .proyectos-page h1 {
+            color: var(--blanco);
+        }
+
+        /* Contenedor de la cuadrícula de proyectos */
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2.5rem;
+        }
+
+        /* Tarjeta de proyecto individual */
+        .project-card {
+            background: rgba(255, 255, 255, 0.05); /* Fondo semitransparente */
+            backdrop-filter: blur(10px); /* Efecto de desenfoque (cristal) */
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
+            padding: 1.5rem;
+            display: flex;
+            gap: 1.5rem;
+            align-items: center;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px) scale(1.03);
+            box-shadow: 0 16px 40px 0 rgba(0, 0, 0, 0.3);
+            border-color: rgba(255, 107, 107, 0.8);
+        }
+
+        .project-info {
+            flex: 3; /* Ocupa más espacio */
+        }
+        
+        .project-info h3, .project-info p {
+            color: var(--blanco);
+        }
+        
+        .project-info h3 {
+             font-family: var(--font-title);
+             margin-top: 0;
+        }
+
+        .project-image {
+            flex: 2; /* Ocupa menos espacio */
+            align-self: center;
+        }
+
+        .project-image img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            /* Marco con sombra interior y exterior para un efecto de profundidad */
+            border: 2px solid white;
+            box-shadow: 0 0 0 4px var(--naranja-atomico), 0 5px 15px rgba(0,0,0,0.3);
+            transition: transform 0.3s ease;
+        }
+        
+        .project-card:hover .project-image img {
+            transform: scale(1.05);
+        }
+
+        /* Adaptabilidad para móviles (una columna) */
+        @media (max-width: 992px) {
+            .project-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .project-card {
+                flex-direction: column;
+            }
+        }
+
         @font-face {
             font-family: 'PixelSerif';
             src: url('fonts/PixelSerif_16px_v02.otf') format('opentype');
@@ -17,9 +108,10 @@
         body {
             font-family: 'PixelSerif', var(--font-body);
         }
+
     </style>
 </head>
-<body>
+<body class="proyectos-page"> 
     <header>
         <nav>
             <a href="index.html">Inicio</a>
@@ -31,23 +123,43 @@
     </header>
     <main class="container">
         <h1>Mis Proyectos</h1>
-        <div class="card-container">
-            <div class="card">
-                <h3>The Conjugator</h3>
-                <p>Un juego de conjugación con temática de Terminator. Varias opciones de modo y conjugación, selección de verbo avanzada. Un proyecto con más de 100 horas de trabajo.</p>
-                <a href="https://balpomorelitm.github.io/The-Conjugator/" target="_blank">Visitar proyecto &rarr;</a>
+
+        <div class="project-grid">
+
+            <div class="project-card">
+                <div class="project-info">
+                    <h3>The Conjugator</h3>
+                    <p>Un juego de conjugación con temática de Terminator. Selección de verbo avanzada y múltiples modos de juego.</p>
+                    <a href="https://balpomorelitm.github.io/The-Conjugator/" class="cta-button" target="_blank">Jugar &rarr;</a>
+                </div>
+                <div class="project-image">
+                    <img src="imagenes/conjuchuache.webp" alt="Imagen del proyecto The Conjugator">
+                </div>
             </div>
-            <div class="card">
-                <h3>Palabras Clave</h3>
-                <p>Un juego tipo código secreto para estudiantes de español con el banco del CVC de nivel A1 y A2 integrado. Inglés y español y varias opciones.</p>
-                <a href="https://balpomorelitm.github.io/Codigos-secretos/" target="_blank">Visitar proyecto &rarr;</a>
+
+            <div class="project-card">
+                <div class="project-info">
+                    <h3>Atún Feliz</h3>
+                    <p>Adaptación digital del juego de cartas Happy Salmon, creado con fines educativos para practicar vocabulario y reflejos.</p>
+                    <a href="https://balpomorelitm.github.io/atunfeliz/" class="cta-button" target="_blank">Jugar &rarr;</a>
+                </div>
+                <div class="project-image">
+                    <img src="imagenes/atunfeliz.png" alt="Imagen del proyecto Atún Feliz">
+                </div>
             </div>
-            <div class="card">
-                <h3>Atún Feliz</h3>
-                <p>Un juego para practicar como Happy Salmon, creado con fines educativos.</p>
-                <a href="https://balpomorelitm.github.io/atunfeliz/" target="_blank">Visitar proyecto &rarr;</a>
+
+            <div class="project-card">
+                <div class="project-info">
+                    <h3>Palabras Clave</h3>
+                    <p>Juego tipo código secreto para estudiantes de español con el banco de palabras del CVC (Nivel A1-A2).</p>
+                    <a href="https://balpomorelitm.github.io/Codigos-secretos/" class="cta-button" target="_blank">Jugar &rarr;</a>
+                </div>
+                <div class="project-image">
+                    <img src="imagenes/palabrasclave.png" alt="Imagen del proyecto Palabras Clave">
+                </div>
             </div>
-        </div>
+            
+            </div>
     </main>
 </body>
 </html>
