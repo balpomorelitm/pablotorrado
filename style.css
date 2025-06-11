@@ -380,7 +380,7 @@ Estilos Mejorados para la Barra de Navegaci\u00f3n Lateral
   background: white;
   box-shadow: 0 5px 15px rgba(0,0,0,0.2);
   /* Drastically reduce the sidebar photo size */
-  width: 45px; /* original 140px -> reduced over 65% */
+  width: 14px; /* original 140px -> reduced over 90% */
   transform: rotate(-4deg); /* Ligeramente ladeado */
   transition: all 0.3s ease-in-out;
 }
@@ -392,6 +392,7 @@ Estilos Mejorados para la Barra de Navegaci\u00f3n Lateral
 
 #header .profile .img-fluid {
   /* La imagen ya no necesita bordes */
+  width: 100%;
 }
 
 #header .profile h1 {
@@ -506,6 +507,12 @@ Estilos Mejorados para la Barra de Navegaci\u00f3n Lateral
   padding: 6px 10px;
   border-radius: 50%;
   background: rgba(44, 62, 80, 0.9);
+}
+
+.menu-icon-img {
+  width: 24px;
+  height: 24px;
+  display: block;
 }
 
 .mobile-nav-active {
