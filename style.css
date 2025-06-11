@@ -695,3 +695,125 @@ Main Content Wrapper
 .nav-menu a:hover, .nav-menu .active > a, .nav-menu li:hover > a {
     color: inherit;
 }
+
+/*
+====================================
+Mosaico de Proyectos con Diseño
+====================================
+*/
+
+:root {
+    /* Color para la capa superpuesta, puedes cambiarlo */
+    --azul-mosaico-overlay: rgba(44, 62, 80, 0.85);
+}
+
+/* --- 1. Contenedor del Grid --- */
+.project-mosaic-grid {
+    display: grid;
+    /* Un grid de 4 columnas */
+    grid-template-columns: repeat(4, 1fr);
+    /* Filas con altura fija para mantener la consistencia */
+    grid-auto-rows: 250px;
+    gap: 1.5rem; /* Espacio entre las imágenes */
+    padding: 2rem 0;
+    max-width: 1100px;
+    margin: 2rem auto;
+}
+
+/* --- 2. Cada "Item" del Mosaico --- */
+.mosaic-item {
+    position: relative; /* Necesario para posicionar la capa superpuesta */
+    overflow: hidden; /* Evita que la imagen se salga al hacer zoom */
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    display: block; /* Para que la etiqueta <a> o <div> ocupe el espacio */
+}
+
+/* --- 3. Estilos de la Imagen --- */
+.mosaic-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Asegura que la imagen cubra el espacio sin deformarse */
+    transition: transform 0.4s ease-in-out, filter 0.4s ease;
+}
+
+/* --- 4. Capa Superpuesta (Overlay) --- */
+.mosaic-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--azul-mosaico-overlay);
+
+    /* Centra el título vertical y horizontalmente */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    opacity: 0; /* Oculto por defecto */
+    transition: opacity 0.4s ease-in-out;
+}
+
+.mosaic-title {
+    color: var(--blanco);
+    font-family: var(--font-title);
+    font-size: 1.75rem;
+    font-weight: 700;
+    text-align: center;
+    padding: 1rem;
+    transform: translateY(20px); /* Efecto de entrada desde abajo */
+    transition: transform 0.4s ease;
+}
+
+/* --- 5. Efectos al Pasar el Ratón (Hover) --- */
+.mosaic-item:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+}
+
+/* La capa superpuesta aparece */
+.mosaic-item:hover .mosaic-overlay {
+    opacity: 1;
+}
+
+/* El título se desliza a su posición */
+.mosaic-item:hover .mosaic-title {
+    transform: translateY(0);
+}
+
+/* La imagen de fondo hace un ligero zoom */
+.mosaic-item:hover img {
+    transform: scale(1.1);
+}
+
+/* --- 6. Clases para agrupar (Spanning) --- */
+.span-h-2 {
+    grid-column: span 2; /* Ocupa 2 columnas de ancho */
+}
+.span-v-2 {
+    grid-row: span 2; /* Ocupa 2 filas de alto */
+}
+
+/* --- 7. Responsividad para Móviles --- */
+@media (max-width: 992px) {
+    .project-mosaic-grid {
+        /* 2 columnas en tablets */
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 576px) {
+    .project-mosaic-grid {
+        /* 1 columna en móviles */
+        grid-template-columns: 1fr;
+        grid-auto-rows: 280px; /* Un poco más de altura en vertical */
+    }
+
+    /* En móvil, hacemos que todas las imágenes ocupen 1 columna */
+    .span-h-2 {
+        grid-column: span 1;
+    }
+}
+
