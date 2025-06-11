@@ -365,7 +365,7 @@ Estilos Mejorados para la Barra de Navegaci\u00f3n Lateral
 }
 
 #main {
-  margin-left: 300px;
+  margin-left: 320px; /* increased to create additional space from the sidebar */
 }
 
 /* --- Perfil y Efecto Polaroid --- */
