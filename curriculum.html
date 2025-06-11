@@ -28,7 +28,7 @@
             
             <div class="social-links text-center">
                 <a href="mailto:pablot@hku.hk" class="email">📧</a>
-                <a href="https://www.linkedin.com/in/pablotorradosolo" target="_blank" class="linkedin"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://www.linkedin.com/in/pablotorradosolo" target="_blank" class="linkedin"><img src="imagenes/linkedicon.png" alt="LinkedIn" class="linkedin-icon"></a>
                 </div>
         </div>
 
@@ -44,7 +44,7 @@
 </header>
 
 
-    <button type="button" class="mobile-nav-toggle d-xl-none"><span class="menu-icon">🟰</span></button>
+    <button type="button" class="mobile-nav-toggle d-xl-none"><span class="menu-icon" data-state="burger"><img src="imagenes/burguer.webp" alt="Men\u00fa" class="menu-icon-img"></span></button>
 
     <main id="main">
         <div class="main-header">
@@ -204,7 +204,13 @@
                 mobileNavToggle.addEventListener('click', function(e) {
                     document.body.classList.toggle('mobile-nav-active');
                     const icon = this.querySelector('.menu-icon');
-                    icon.textContent = icon.textContent === "🟰" ? "✖" : "🟰";
+                    if (icon.dataset.state === 'burger') {
+                        icon.innerHTML = '✖';
+                        icon.dataset.state = 'close';
+                    } else {
+                        icon.innerHTML = '<img src="imagenes/burguer.webp" alt="Men\u00fa" class="menu-icon-img">';
+                        icon.dataset.state = 'burger';
+                    }
                 });
             }
             // --- NEW: Typewriter Effect Initialization ---
