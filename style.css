@@ -437,14 +437,6 @@ Estilos para la Barra de Navegación Lateral
   color: #6f8ba4;
 }
 
-.nav-menu a:hover, .nav-menu .active > a, .nav-menu li:hover > a {
-  text-decoration: none;
-  color: #fff;
-}
-
-.nav-menu a:hover i, .nav-menu .active > a i, .nav-menu li:hover > a i {
-  color: var(--naranja-atomico);
-}
 
 .mobile-nav-toggle {
   position: fixed;
@@ -509,4 +501,54 @@ Estilos para la Barra de Navegación Lateral
   width: 28px;
   height: 28px;
   margin-right: 4px;
+}
+
+/*
+====================================
+Nuevos Estilos (Cabecera Fija y Menú Activo)
+====================================
+*/
+
+/* --- 1. Cabecera de Contenido Fija --- */
+.main-header {
+  position: sticky;
+  top: 0;
+  background-color: #1a1a1a;
+  color: #ffffff;
+  padding: 1rem 2rem;
+  z-index: 900;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.main-header h1 {
+  margin: 0;
+  font-size: 1.5rem;
+  font-family: var(--font-title);
+}
+
+/* --- 2. Nuevo Estilo para el Enlace Activo en la Barra Lateral --- */
+
+.nav-menu .active > a,
+.nav-menu li:hover > a {
+  text-decoration: none;
+  background-color: #ffffff;
+  color: var(--azul-pizarra);
+  border-radius: 5px;
+}
+
+.nav-menu .active > a i,
+.nav-menu li:hover > a i {
+  color: var(--naranja-atomico);
+}
+
+.nav-menu a:hover, .nav-menu .active > a {
+    color: var(--azul-pizarra);
+}
+
+.nav-menu a:hover span, .nav-menu .active > a span {
+    color: var(--azul-pizarra);
+}
+
+.nav-menu a:hover, .nav-menu .active > a, .nav-menu li:hover > a {
+    color: inherit;
 }
