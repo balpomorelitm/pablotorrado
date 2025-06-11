@@ -409,29 +409,76 @@ Estilos Mejorados para la Barra de Navegaci\u00f3n Lateral
   text-decoration: none;
 }
 
-/* --- Iconos de Redes Sociales (con LinkedIn m\u00e1s peque\u00f1o) --- */
+/*
+====================================
+Sidebar Refinements: Social Links & Language Switcher
+====================================
+*/
+
+/* --- Simplified Social Links --- */
 .social-links {
-  padding-top: 15px;
+  padding: 15px 0;
 }
 .social-links a {
-  font-size: 18px; /* Tama\u00f1o reducido para todos los iconos */
-  display: inline-block;
-  background: #3e5369;
-  color: #fff;
-  line-height: 1;
-  padding: 8px 0;
-  margin: 0 4px;
-  border-radius: 50%;
-  text-align: center;
-  width: 36px;
-  height: 36px;
-  transition: 0.3s;
+  font-size: 22px;
+  color: #a8b9c9;
+  padding: 0 10px;
+  transition: all 0.3s ease;
+}
+.social-links a:hover {
+  color: var(--naranja-atomico);
+  transform: scale(1.2);
 }
 
-.social-links a:hover {
-  background: var(--naranja-atomico);
+/* --- Language Switcher Buttons --- */
+.language-switcher {
+  text-align: center;
+  padding: 20px 0;
+}
+.lang-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: Montserrat, sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  border: 2px solid #5a6d7e;
+  background-color: transparent;
+  color: #a8b9c9;
+  padding: 8px 16px;
+  margin: 0 4px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.lang-button svg {
+  margin-right: 8px;
+  height: 15px;
+  width: auto;
+  border-radius: 2px;
+}
+.lang-button.active, .lang-button:hover {
+  background-color: var(--naranja-atomico);
+  border-color: var(--naranja-atomico);
   color: #fff;
 }
+
+/* --- Language Display Logic --- */
+.lang-en {
+  display: none !important;
+}
+body.lang-en-active .lang-en {
+  display: block !important;
+}
+body.lang-en-active .lang-es {
+  display: none !important;
+}
+
+/* Utility class from previous implementation */
+.mt-auto {
+    margin-top: auto;
+}
+
 
 /* --- Men\u00fa de Navegaci\u00f3n Mejorado --- */
 .nav-menu {
@@ -460,21 +507,6 @@ Estilos Mejorados para la Barra de Navegaci\u00f3n Lateral
   border-radius: 5px;
 }
 
-.nav-menu button.lang-toggle {
-  width: 100%;
-  background: none;
-  border: none;
-  color: #a8b9c9;
-  padding: 12px 15px;
-  margin-bottom: 8px;
-  text-align: left;
-  font-size: 15px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  border-radius: 5px;
-}
-
-.nav-menu button.lang-toggle:hover {
   color: #fff;
   background: rgba(255, 255, 255, 0.1);
 }
