@@ -332,7 +332,7 @@ Estilos para la Barra de Navegación Lateral
   top: 0;
   left: 0;
   bottom: 0;
-  width: 300px; /* Ancho de la barra lateral */
+  width: 225px; /* Ancho de la barra lateral reducido */
   transition: all 0.5s;
   z-index: 9997;
   padding: 0 15px;
@@ -341,7 +341,7 @@ Estilos para la Barra de Navegación Lateral
 }
 
 #main {
-  margin-left: 300px; /* ¡ESTA ES LA REGLA CLAVE! */
+  margin-left: 225px; /* Ajuste por reducción de la barra lateral */
 }
 
 /* --- Perfil en la Barra Lateral --- */
@@ -353,7 +353,7 @@ Estilos para la Barra de Navegación Lateral
 }
 
 #header .profile h1 {
-  font-size: 24px;
+  font-size: 29px; /* Aumento del 20% */
   margin: 0;
   padding: 0;
   font-weight: 600;
@@ -389,11 +389,11 @@ Estilos para la Barra de Navegación Lateral
   padding: 12px 15px;
   margin-bottom: 8px;
   transition: 0.3s;
-  font-size: 15px;
+  font-size: 18px; /* Aumento del 20% */
 }
 
 .nav-menu a i {
-  font-size: 24px;
+  font-size: 29px; /* Aumento del 20% */
   padding-right: 8px;
   color: #6f8ba4;
 }
@@ -415,7 +415,7 @@ Estilos para la Barra de Navegación Lateral
   z-index: 9998;
   border: 0;
   background: none;
-  font-size: 24px;
+  font-size: 29px; /* Aumento del 20% */
   transition: all 0.4s;
   outline: none !important;
   line-height: 1;
@@ -437,7 +437,7 @@ Estilos para la Barra de Navegación Lateral
 
 @media (max-width: 1199px) {
   #header {
-    left: -300px;
+    left: -225px;
   }
   #main {
     margin-left: 0; /* Se quita el margen en móviles */
