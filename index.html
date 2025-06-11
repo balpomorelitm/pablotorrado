@@ -45,9 +45,7 @@
     <button type="button" class="mobile-nav-toggle d-xl-none"><span class="menu-icon">🟰</span></button>
 
     <main id="main">
-        <div class="main-header">
-            <h1><span class="typed" data-typed-items="Inicio"></span></h1>
-        </div>
+        <!-- Removed animated title header -->
         <h1 style="font-size: 2.5rem;">Pablo Torrado Solo de Zaldívar</h1>
         <div class="subtitle-container">
             <span class="role-profesor" data-en="Spanish Teacher">Profesor de Español</span>
@@ -71,7 +69,6 @@
     </main>
 
     <script src="lang-toggle.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
@@ -82,20 +79,6 @@
                     document.body.classList.toggle('mobile-nav-active');
                     const icon = this.querySelector('.menu-icon');
                     icon.textContent = icon.textContent === "🟰" ? "✖" : "🟰";
-                });
-            }
-
-            // --- NEW: Typewriter Effect Initialization ---
-            const typed = document.querySelector('.typed');
-            if (typed) {
-                let typed_strings = typed.getAttribute('data-typed-items');
-                typed_strings = typed_strings.split(',');
-                new Typed('.typed', {
-                    strings: typed_strings,
-                    loop: false,
-                    typeSpeed: 100,
-                    backSpeed: 50,
-                    backDelay: 2000
                 });
             }
         });
