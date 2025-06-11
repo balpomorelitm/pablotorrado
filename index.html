@@ -2,10 +2,64 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Mi Portafolio</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portafolio de Proyectos</title>
+    <style>
+        /* Estilos básicos para que se vea ordenado */
+        body { font-family: sans-serif; background-color: #f4f4f9; color: #333; }
+        .container { max-width: 800px; margin: 2rem auto; padding: 1rem; }
+        .repo { background-color: #fff; border: 1px solid #ddd; border-radius: 8px; padding: 1rem; margin-bottom: 1rem; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+        .repo h3 { margin-top: 0; }
+        .repo a { text-decoration: none; color: #0366d6; font-size: 1.2rem; }
+        .repo p { margin-bottom: 0; }
+    </style>
 </head>
 <body>
-    <h1>¡Hola, Mundo!</h1>
-    <p>Este es mi nuevo sitio web personal.</p>
+
+    <div class="container">
+        <h1>Mis Repositorios en GitHub</h1>
+        <div id="repos-list">
+            <p>Cargando repositorios...</p>
+        </div>
+    </div>
+
+    <script>
+        // --- CONFIGURACIÓN ---
+        // ¡¡IMPORTANTE!! Reemplaza esto con tu nombre de usuario de GitHub
+        const GITHUB_USERNAME = 'balpomoreli';
+
+        // --- LÓGICA ---
+        document.addEventListener('DOMContentLoaded', () => {
+            const listElement = document.getElementById('repos-list');
+            const apiUrl = `https://api.github.com/users/${GITHUB_USERNAME}/repos?sort=updated&direction=desc`;
+
+            fetch(apiUrl)
+                .then(response => response.json())
+                .then(repos => {
+                    // Limpiamos el mensaje de "Cargando..."
+                    listElement.innerHTML = ''; 
+
+                    // Iteramos sobre cada repositorio encontrado
+                    repos.forEach(repo => {
+                        // Creamos el HTML para cada repositorio
+                        const repoElement = document.createElement('div');
+                        repoElement.classList.add('repo');
+                        
+                        repoElement.innerHTML = `
+                            <h3><a href="${repo.html_url}" target="_blank">${repo.name}</a></h3>
+                            <p>${repo.description || 'Sin descripción.'}</p>
+                        `;
+                        
+                        // Añadimos el elemento del repositorio a la lista
+                        listElement.appendChild(repoElement);
+                    });
+                })
+                .catch(error => {
+                    console.error('Error al cargar los repositorios:', error);
+                    listElement.innerHTML = '<p>No se pudieron cargar los repositorios.</p>';
+                });
+        });
+    </script>
+
 </body>
 </html>
