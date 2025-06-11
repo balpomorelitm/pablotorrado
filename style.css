@@ -443,3 +443,10 @@ Estilos para la Barra de Navegación Lateral
     margin-left: 0; /* Se quita el margen en móviles */
   }
 }
+
+@media (min-width: 1200px) {
+  .mobile-nav-toggle {
+    display: none;
+  }
+}
+
