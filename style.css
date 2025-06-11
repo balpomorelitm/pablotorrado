@@ -380,7 +380,7 @@ Estilos Mejorados para la Barra de Navegaci\u00f3n Lateral
   background: white;
   box-shadow: 0 5px 15px rgba(0,0,0,0.2);
   /* Increase sidebar photo size by 40% */
-  width: 20px; /* original 14px -> 40% larger */
+  width: 196px; /* original 140px -> 40% larger */
   transform: rotate(-4deg); /* Ligeramente ladeado */
   transition: all 0.3s ease-in-out;
 }
