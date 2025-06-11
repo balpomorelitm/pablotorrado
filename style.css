@@ -516,21 +516,21 @@ Estilos Mejorados para la Barra de Navegaci\u00f3n Lateral
   z-index: 9998;
   border: 0;
   background: none;
-  font-size: 24px;
+  font-size: calc(24px * 0.97);
   transition: all 0.4s;
   outline: none !important;
   line-height: 1;
   cursor: pointer;
   text-align: right;
   color: var(--naranja-atomico);
-  padding: 6px 10px;
+  padding: 5px 8px;
   border-radius: 50%;
   background: rgba(44, 62, 80, 0.9);
 }
 
 .menu-icon-img {
-  width: 24px;
-  height: 24px;
+  width: calc(24px * 0.97);
+  height: calc(24px * 0.97);
   display: block;
 }
 
