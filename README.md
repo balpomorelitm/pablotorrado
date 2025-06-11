@@ -2,6 +2,8 @@
 
 Este repositorio contiene los archivos fuente de mi portafolio personal.
 
-![Foto de Pablo Torrado](personalpic.jpg)
+<p align="right">
+  <img src="personalpic.jpg" alt="Foto de Pablo Torrado" width="120">
+</p>
 
 Abre `index.html` en tu navegador para explorar mi currículo, proyectos y publicaciones.
