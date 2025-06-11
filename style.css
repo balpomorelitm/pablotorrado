@@ -327,16 +327,12 @@ Estilos para la Barra de Navegación Lateral
 */
 
 /* --- Estructura General --- */
-body {
-  transition: background-color 0.3s, color 0.3s;
-}
-
 #header {
   position: fixed;
   top: 0;
   left: 0;
   bottom: 0;
-  width: 300px;
+  width: 300px; /* Ancho de la barra lateral */
   transition: all 0.5s;
   z-index: 9997;
   padding: 0 15px;
@@ -345,7 +341,7 @@ body {
 }
 
 #main {
-  margin-left: 300px;
+  margin-left: 300px; /* ¡ESTA ES LA REGLA CLAVE! */
 }
 
 /* --- Perfil en la Barra Lateral --- */
@@ -444,6 +440,6 @@ body {
     left: -300px;
   }
   #main {
-    margin-left: 0;
+    margin-left: 0; /* Se quita el margen en móviles */
   }
 }
