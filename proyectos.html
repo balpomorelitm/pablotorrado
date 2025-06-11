@@ -129,11 +129,12 @@
 
             <nav class="nav-menu">
                 <ul>
-                    <li><a href="index.html"><i class="fas fa-home"></i> <span>Inicio</span></a></li>
-                    <li><a href="curriculum.html"><i class="fas fa-file-alt"></i> <span>Currículum</span></a></li>
-                    <li class="active"><a href="proyectos.html"><i class="fas fa-laptop-code"></i> <span>Proyectos</span></a></li>
-                    <li><a href="publicaciones.html"><i class="fas fa-book-open"></i> <span>Publicaciones</span></a></li>
-                    <li><a href="contacto.html"><i class="fas fa-envelope"></i> <span>Contacto</span></a></li>
+                    <li><a href="index.html"><i class="fas fa-home"></i> <span data-en="Home">Inicio</span></a></li>
+                    <li><a href="curriculum.html"><i class="fas fa-file-alt"></i> <span data-en="Resume">Currículum</span></a></li>
+                    <li class="active"><a href="proyectos.html"><i class="fas fa-laptop-code"></i> <span data-en="Projects">Proyectos</span></a></li>
+                    <li><a href="publicaciones.html"><i class="fas fa-book-open"></i> <span data-en="Publications">Publicaciones</span></a></li>
+                    <li><a href="contacto.html"><i class="fas fa-envelope"></i> <span data-en="Contact">Contacto</span></a></li>
+                    <li><button id="lang-btn" class="lang-toggle">English version</button></li>
                 </ul>
             </nav>
         </div>
@@ -142,15 +143,15 @@
     <button type="button" class="mobile-nav-toggle d-xl-none"><span class="menu-icon">🟰</span></button>
 
     <main id="main">
-        <h1>Mis Proyectos</h1>
+        <h1 data-en="My Projects">Mis Proyectos</h1>
 
         <div class="project-grid">
 
             <div class="project-card">
                 <div class="project-info">
-                    <h3>The Conjugator</h3>
-                    <p>Un juego de conjugación con temática de Terminator. Selección de verbo avanzada y múltiples modos de juego.</p>
-                    <a href="https://balpomorelitm.github.io/The-Conjugator/" class="cta-button" target="_blank">Jugar &rarr;</a>
+                    <h3 data-en="The Conjugator">The Conjugator</h3>
+                    <p data-en="A conjugation game with a Terminator theme. Advanced verb selection and multiple game modes.">Un juego de conjugación con temática de Terminator. Selección de verbo avanzada y múltiples modos de juego.</p>
+                    <a href="https://balpomorelitm.github.io/The-Conjugator/" class="cta-button" target="_blank" data-en="Play →">Jugar &rarr;</a>
                 </div>
                 <div class="project-image">
                     <img src="imagenes/conjuchuache.webp" alt="Imagen del proyecto The Conjugator">
@@ -159,9 +160,9 @@
 
             <div class="project-card">
                 <div class="project-info">
-                    <h3>Atún Feliz</h3>
-                    <p>Adaptación digital del juego de cartas Happy Salmon, creado con fines educativos para practicar vocabulario y reflejos.</p>
-                    <a href="https://balpomorelitm.github.io/atunfeliz/" class="cta-button" target="_blank">Jugar &rarr;</a>
+                    <h3 data-en="Happy Tuna">Atún Feliz</h3>
+                    <p data-en="A digital adaptation of the card game Happy Salmon, created for educational purposes to practice vocabulary and reflexes.">Adaptación digital del juego de cartas Happy Salmon, creado con fines educativos para practicar vocabulario y reflejos.</p>
+                    <a href="https://balpomorelitm.github.io/atunfeliz/" class="cta-button" target="_blank" data-en="Play →">Jugar &rarr;</a>
                 </div>
                 <div class="project-image">
                     <img src="imagenes/atunfeliz.png" alt="Imagen del proyecto Atún Feliz">
@@ -170,9 +171,9 @@
 
             <div class="project-card">
                 <div class="project-info">
-                    <h3>Palabras Clave</h3>
-                    <p>Juego tipo código secreto para estudiantes de español con el banco de palabras del CVC (Nivel A1-A2).</p>
-                    <a href="https://balpomorelitm.github.io/Codigos-secretos/" class="cta-button" target="_blank">Jugar &rarr;</a>
+                    <h3 data-en="Keywords">Palabras Clave</h3>
+                    <p data-en="A secret code-style game for Spanish students using the CVC word bank (Level A1-A2).">Juego tipo código secreto para estudiantes de español con el banco de palabras del CVC (Nivel A1-A2).</p>
+                    <a href="https://balpomorelitm.github.io/Codigos-secretos/" class="cta-button" target="_blank" data-en="Play →">Jugar &rarr;</a>
                 </div>
                 <div class="project-image">
                     <img src="imagenes/palabrasclave.png" alt="Imagen del proyecto Palabras Clave">
@@ -181,19 +182,19 @@
 
             <div class="project-card">
                 <div class="project-info">
-                    <h3>#BuenasNotas</h3>
-                    <p>
+                    <h3 data-en="Good Notes">#BuenasNotas</h3>
+                    <p data-en="A \"pretty notes\" contest organized in Bangkok (2020) to encourage creativity in learning Spanish, with notes in English and Thai.">
                         Un concurso de "apuntes bonitos" organizado en Bangkok (2020) para fomentar la creatividad en el aprendizaje del español, con notas en inglés y tailandés.
                     </p>
-                    <p>Los jueces valoraron:</p>
+                    <p data-en="The judges valued:">Los jueces valoraron:</p>
                     <ul>
                         <li>Organización y claridad.</li>
                         <li>Belleza y uso del color.</li>
                         <li>Corrección y coherencia.</li>
                         <li>Originalidad.</li>
                     </ul>
-                    <p>Se hizo en colaboración con la Embajada de España y "Cooperación Española Acción Exterior".</p>
-                    <a href="documentos/Buenasnotas2020.pdf" class="cta-button" target="_blank">Libro de propuestas &rarr;</a>
+                    <p data-en="It was organized in collaboration with the Embassy of Spain and 'Cooperación Española Acción Exterior'.">Se hizo en colaboración con la Embajada de España y "Cooperación Española Acción Exterior".</p>
+                    <a href="documentos/Buenasnotas2020.pdf" class="cta-button" target="_blank" data-en="See more →">Libro de propuestas &rarr;</a>
                 </div>
                 <div class="project-image">
                     <img src="imagenes/buenasnotas.jpg" alt="Imagen del concurso Buenas Notas">
@@ -203,6 +204,7 @@
             </div>
     </main>
 
+    <script src="lang-toggle.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const mobileNavToggle = document.querySelector('.mobile-nav-toggle');

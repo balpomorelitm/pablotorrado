@@ -64,11 +64,12 @@
 
             <nav class="nav-menu">
                 <ul>
-                    <li><a href="index.html"><i class="fas fa-home"></i> <span>Inicio</span></a></li>
-                    <li><a href="curriculum.html"><i class="fas fa-file-alt"></i> <span>Currículum</span></a></li>
-                    <li><a href="proyectos.html"><i class="fas fa-laptop-code"></i> <span>Proyectos</span></a></li>
-                    <li><a href="publicaciones.html"><i class="fas fa-book-open"></i> <span>Publicaciones</span></a></li>
-                    <li class="active"><a href="contacto.html"><i class="fas fa-envelope"></i> <span>Contacto</span></a></li>
+                    <li><a href="index.html"><i class="fas fa-home"></i> <span data-en="Home">Inicio</span></a></li>
+                    <li><a href="curriculum.html"><i class="fas fa-file-alt"></i> <span data-en="Resume">Currículum</span></a></li>
+                    <li><a href="proyectos.html"><i class="fas fa-laptop-code"></i> <span data-en="Projects">Proyectos</span></a></li>
+                    <li><a href="publicaciones.html"><i class="fas fa-book-open"></i> <span data-en="Publications">Publicaciones</span></a></li>
+                    <li class="active"><a href="contacto.html"><i class="fas fa-envelope"></i> <span data-en="Contact">Contacto</span></a></li>
+                    <li><button id="lang-btn" class="lang-toggle">English version</button></li>
                 </ul>
             </nav>
         </div>
@@ -77,7 +78,7 @@
     <button type="button" class="mobile-nav-toggle d-xl-none"><span class="menu-icon">🟰</span></button>
 
     <main id="main">
-        <h1>Hablemos</h1>
+        <h1 data-en="Let's Talk">Hablemos</h1>
         <div class="contact-card">
             <ul class="contact-list">
                 <li>
@@ -102,6 +103,7 @@
         </div>
     </main>
 
+    <script src="lang-toggle.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const mobileNavToggle = document.querySelector('.mobile-nav-toggle');
