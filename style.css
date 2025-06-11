@@ -346,16 +346,17 @@ h3 {
 
 /*
 ====================================
-Estilos para la Barra de Navegación Lateral
+Estilos Mejorados para la Barra de Navegaci\u00f3n Lateral
 ====================================
 */
 
+/* --- Estructura General --- */
 #header {
   position: fixed;
   top: 0;
   left: 0;
   bottom: 0;
-  width: 225px; 
+  width: 300px;
   transition: all 0.5s;
   z-index: 9997;
   padding: 0 15px;
@@ -364,19 +365,36 @@ Estilos para la Barra de Navegación Lateral
 }
 
 #main {
-  margin-left: 225px;
-  padding: 2rem 3rem;
+  margin-left: 300px;
 }
 
-#header .profile img {
-  margin: 15px auto;
-  display: block;
-  width: 120px;
-  border: 8px solid #3e5369;
+/* --- Perfil y Efecto Polaroid --- */
+#header .profile {
+  padding-top: 15px;
+}
+
+#header .polaroid-frame {
+  margin: 0 auto 10px auto;
+  padding: 10px;
+  padding-bottom: 20px; /* Borde m\u00e1s grueso abajo, estilo polaroid */
+  background: white;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  width: 140px;
+  transform: rotate(-4deg); /* Ligeramente ladeado */
+  transition: all 0.3s ease-in-out;
+}
+
+#header .polaroid-frame:hover {
+  transform: rotate(0deg) scale(1.05); /* Se endereza y agranda al pasar el rat\u00f3n */
+  box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+}
+
+#header .profile .img-fluid {
+  /* La imagen ya no necesita bordes */
 }
 
 #header .profile h1 {
-  font-size: 29px;
+  font-size: 24px;
   margin: 0;
   padding: 0;
   font-weight: 600;
@@ -384,11 +402,36 @@ Estilos para la Barra de Navegación Lateral
   font-family: var(--font-title);
 }
 
-#header .profile h1 a, #header .profile h1 a:hover {
+#header .profile h1 a {
   color: #fff;
   text-decoration: none;
 }
 
+/* --- Iconos de Redes Sociales (con LinkedIn m\u00e1s peque\u00f1o) --- */
+.social-links {
+  padding-top: 15px;
+}
+.social-links a {
+  font-size: 18px; /* Tama\u00f1o reducido para todos los iconos */
+  display: inline-block;
+  background: #3e5369;
+  color: #fff;
+  line-height: 1;
+  padding: 8px 0;
+  margin: 0 4px;
+  border-radius: 50%;
+  text-align: center;
+  width: 36px;
+  height: 36px;
+  transition: 0.3s;
+}
+
+.social-links a:hover {
+  background: var(--naranja-atomico);
+  color: #fff;
+}
+
+/* --- Men\u00fa de Navegaci\u00f3n Mejorado --- */
 .nav-menu {
   padding-top: 30px;
 }
@@ -409,35 +452,42 @@ Estilos para la Barra de Navegación Lateral
   align-items: center;
   color: #a8b9c9;
   padding: 12px 15px;
-  margin-bottom: 5px;
-  transition: 0.3s;
-  font-size: 18px;
-}
-
-.nav-menu button.lang-toggle {
-  width: 100%;
-  background: none;
-  border: none;
-  color: #a8b9c9;
-  padding: 12px 15px;
-  margin-bottom: 5px;
-  text-align: left;
-  font-size: 18px;
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-.nav-menu button.lang-toggle:hover {
-  color: #fff;
+  margin-bottom: 8px;
+  transition: all 0.3s ease; /* Transici\u00f3n suave */
+  font-size: 15px;
+  border-radius: 5px;
 }
 
 .nav-menu a i {
-  font-size: 29px; 
-  padding-right: 8px;
+  font-size: 20px; /* Iconos un poco m\u00e1s peque\u00f1os */
+  padding-right: 10px;
   color: #6f8ba4;
+  transition: all 0.3s ease;
+}
+
+/* Efecto hover para enlaces NO activos */
+.nav-menu a:hover {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.1); /* Fondo sutil al pasar el rat\u00f3n */
+}
+.nav-menu a:hover i {
+  color: var(--naranja-atomico);
+}
+
+/* Estilo para el bot\u00f3n ACTIVO */
+.nav-menu .active > a {
+  color: var(--azul-pizarra); /* Letra azul */
+  background: #fff; /* Fondo blanco */
+}
+.nav-menu .active > a span {
+  font-weight: 700;
+}
+.nav-menu .active > a i {
+  color: var(--naranja-atomico); /* Icono naranja */
 }
 
 
+/* --- Navegaci\u00f3n en M\u00f3viles (Sin cambios, pero se mantiene por completitud) --- */
 .mobile-nav-toggle {
   position: fixed;
   right: 15px;
@@ -445,7 +495,7 @@ Estilos para la Barra de Navegación Lateral
   z-index: 9998;
   border: 0;
   background: none;
-  font-size: 29px;
+  font-size: 24px;
   transition: all 0.4s;
   outline: none !important;
   line-height: 1;
@@ -467,20 +517,12 @@ Estilos para la Barra de Navegación Lateral
 
 @media (max-width: 1199px) {
   #header {
-    left: -225px;
+    left: -300px;
   }
   #main {
     margin-left: 0;
-    padding: 2rem 1.5rem;
   }
 }
-
-@media (min-width: 1200px) {
-  .mobile-nav-toggle {
-    display: none;
-  }
-}
-
 /* Mosaic of images on the homepage */
 .image-mosaic {
   margin-top: 2rem;
