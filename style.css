@@ -892,167 +892,165 @@ Estilo para el Resumen Profesional (CV)
     z-index: 0;
 }
 
-/* Hide the old grid layout system in the experience section */
-#experiencia .cv-grid {
-    display: none;
-}
-
-/* --- Timeline Container --- */
-.timeline-container {
+/* --- Nueva Línea de Tiempo Vertical (v2) --- */
+.timeline-v2-wrapper {
     position: relative;
     width: 100%;
-    padding: 50px 0;
-    overflow-x: auto; /* Allows horizontal scrolling on small screens */
-    overflow-y: hidden;
+    padding-left: 80px; /* Espacio para los años */
+    margin-top: 2rem;
 }
 
-/* The main horizontal line */
-.timeline-line {
+#timeline-years {
     position: absolute;
-    top: 50%;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 60px;
+    border-right: 4px solid var(--azul-pizarra);
+}
+
+.year-marker {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    transform: translateY(-50%);
+    font-weight: 700;
+    color: var(--azul-pizarra);
+    font-size: 1.5rem;
+    text-align: right;
+    padding-right: 15px;
+}
+
+#timeline-v2 {
+    position: relative;
+    width: 100%;
+}
+
+.job-bar {
+    position: absolute;
+    width: 150px;
+    background-color: var(--naranja-atomico);
+    color: white;
+    border-radius: 8px;
+    padding: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    overflow: hidden;
+}
+
+.job-bar:hover {
+    transform: scale(1.05);
+    background-color: #ff8a8a;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+    z-index: 10;
+}
+
+.job-bar-title {
+    font-weight: 700;
+    font-size: 0.9rem;
+    margin-bottom: 4px;
+}
+
+.job-bar-company {
+    font-size: 0.8rem;
+    opacity: 0.8;
+}
+
+
+/* --- Ventana Modal --- */
+#timeline-modal {
+    position: fixed;
+    top: 0;
     left: 0;
     width: 100%;
-    height: 4px;
-    background-color: var(--azul-pizarra);
-    transform: translateY(-50%);
-    z-index: 1;
-}
-
-/* Wrapper for all the timeline items */
-.timeline-items {
-    display: flex;
-    justify-content: space-between;
-    position: relative;
-}
-
-/* --- Individual Timeline Item --- */
-.timeline-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    position: relative;
-    flex: 1;
-    min-width: 280px; /* Minimum width for each item */
-    padding: 0 20px;
-}
-
-/* The circular dot on the timeline */
-.timeline-dot {
-    width: 60px;
-    height: 60px;
-    background-color: var(--gris-claro);
-    border: 4px solid var(--azul-pizarra);
-    border-radius: 50%;
-    position: relative;
-    z-index: 3;
-    cursor: pointer;
-    transition: transform 0.3s ease;
+    height: 100%;
+    background-color: rgba(44, 62, 80, 0.85); /* Overlay oscuro */
+    z-index: 1000;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-weight: 700;
-    color: var(--azul-pizarra);
-    font-family: var(--font-title);
-    font-size: 1.2rem;
+    
+    /* Oculto por defecto */
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s 0.3s, opacity 0.3s ease;
 }
 
-.timeline-dot:hover {
-    transform: scale(1.2);
-    background-color: var(--naranja-atomico);
-    border-color: var(--naranja-atomico);
-    color: white;
-}
-
-/* --- Card Positioning --- */
-.timeline-item .cv-card {
-    position: relative;
-    width: 100%;
-    max-width: 400px; /* Max card width */
-    z-index: 2;
-    opacity: 0.7; /* Make non-active cards slightly transparent */
-    transform: scale(0.95);
-    transition: opacity 0.4s ease, transform 0.4s ease;
-}
-
-/* Position cards alternating above and below the line */
-.timeline-item:nth-child(odd) {
-    flex-direction: column-reverse; /* Puts card below dot */
-}
-
-.timeline-item:nth-child(even) .cv-card {
-    margin-bottom: 30px;
-}
-
-.timeline-item:nth-child(odd) .cv-card {
-    margin-top: 30px;
-}
-
-/* --- Connector Lines from Dot to Card --- */
-.timeline-item::after {
-    content: '';
-    position: absolute;
-    width: 3px;
-    background-color: #bdc3c7;
-    z-index: 0;
-}
-
-.timeline-item:nth-child(even)::after {
-    top: 60px; /* Start below the dot */
-    bottom: 50%;
-    left: 50%;
-    transform: translateX(-50%);
-}
-
-.timeline-item:nth-child(odd)::after {
-    bottom: 60px; /* Start above the dot */
-    top: 50%;
-    left: 50%;
-    transform: translateX(-50%);
-}
-
-/* --- Active State for Highlighting --- */
-.timeline-item .cv-card.active {
+#timeline-modal.visible {
+    visibility: visible;
     opacity: 1;
-    transform: scale(1.05);
-    border: 2px solid var(--naranja-atomico);
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+    transition: visibility 0s, opacity 0.3s ease;
 }
 
-/* --- Responsive Adjustments --- */
-@media (max-width: 992px) {
-    .timeline-items {
-        /* On smaller screens, stack them vertically */
-        flex-direction: column;
-        align-items: center;
+.modal-card {
+    position: relative;
+    background: var(--blanco);
+    border-radius: 10px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+    width: 90%;
+    max-width: 600px;
+    padding: 2.5rem;
+    
+    /* Animación de entrada */
+    transform: scale(0.9);
+    transition: transform 0.3s ease;
+}
+
+#timeline-modal.visible .modal-card {
+    transform: scale(1);
+}
+
+.modal-close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    background: none;
+    border: none;
+    font-size: 2.5rem;
+    color: #ccc;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.modal-close:hover {
+    color: var(--naranja-atomico);
+}
+
+/* Reutilizamos los estilos de las tarjetas CV para el contenido del modal */
+.modal-card-content h3 {
+    font-family: var(--font-title);
+    font-size: 2rem;
+    color: var(--azul-pizarra);
+    margin-top: 0;
+}
+.modal-card-content .job-location, .modal-card-content .job-date {
+    font-style: italic;
+    color: #7f8c8d;
+    margin-bottom: 1rem;
+}
+.modal-card-content .job-title {
+    font-weight: 700;
+    font-size: 1.2rem;
+    color: var(--naranja-atomico);
+    margin-bottom: 1rem;
+}
+.modal-card-content ul {
+    list-style-type: '▸ ';
+    padding-left: 1.2rem;
+    margin: 0;
+}
+.modal-card-content ul li {
+    margin-bottom: 0.75rem;
+    line-height: 1.6;
+}
+
+/* Responsividad para la línea de tiempo */
+@media (max-width: 768px) {
+    .job-bar {
+        width: 100px;
     }
-    .timeline-line {
-        /* Change line to be vertical */
-        left: 50%;
-        top: 0;
-        height: 100%;
-        width: 4px;
-        transform: translateX(-50%);
-    }
-    .timeline-item {
-        flex-direction: column !important; /* Force all items to stack same way */
-        width: 100%;
-        max-width: 500px;
-        margin-bottom: 40px;
-    }
-    .timeline-item .cv-card {
-        margin: 0 !important;
-        margin-top: 20px !important;
-        opacity: 1; /* Disable fade effect on mobile */
-        transform: scale(1);
-    }
-    .timeline-item::after {
-        height: 20px;
-        width: 3px;
-        top: 60px;
-        bottom: auto;
-    }
-    .timeline-item .cv-card.active {
-        /* Keep active state simpler for mobile */
-        transform: scale(1.02);
+    .job-bar-company {
+        display: none; /* Ocultar para más espacio */
     }
 }
