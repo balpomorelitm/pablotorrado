@@ -752,103 +752,6 @@ Tira de Imágenes Horizontal
         text-align: center;
     }
 }
-/*
-====================================
-Estilo de Cartas en Abanico (Fan Out)
-====================================
-*/
-
-/* --- 1. Contenedor del Abanico --- */
-.fan-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    width: 100%;
-    min-height: 450px; /* Altura m\00ednima para que el efecto se vea bien */
-    padding: 2rem 0;
-}
-
-/* --- 2. Estilo de cada Carta --- */
-.fan-card {
-    display: block;
-    position: absolute; /* Usamos absoluto para poder transformar desde un mismo punto */
-    left: 50%; /* Partimos del centro del contenedor */
-    width: 220px; /* Ancho fijo para las cartas */
-    height: auto; /* LA CLAVE: la altura se adapta al contenido */
-
-    background: var(--blanco);
-    padding: 12px;
-    border-radius: 12px;
-    box-shadow: 0 10px 20px rgba(44, 62, 80, 0.2);
-
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    transform-origin: bottom center; /* Pivotan desde el centro de su base */
-}
-
-.fan-card img {
-    width: 100%;
-    height: auto;
-    border-radius: 8px;
-    display: block;
-}
-
-.fan-card .caption {
-    padding-top: 10px;
-    text-align: center;
-}
-
-.fan-card .caption h3 {
-    margin: 0;
-    font-family: 'Gochi Hand', cursive;
-    font-size: 1.3rem;
-}
-
-/* --- 3. Posicionamiento y Rotaci\00f3n de cada Carta (El Abanico) --- */
-/* Las cartas de los extremos est\00e1n m\00e1s rotadas y por debajo (z-index bajo) */
-#card-1 { transform: translateX(-50%) rotate(-12deg) translateX(-120px); z-index: 1; }
-#card-6 { transform: translateX(-50%) rotate(12deg) translateX(120px);  z-index: 1; }
-
-#card-2 { transform: translateX(-50%) rotate(-6deg) translateX(-60px);  z-index: 2; }
-#card-5 { transform: translateX(-50%) rotate(6deg) translateX(60px);   z-index: 2; }
-
-/* Las cartas centrales est\00e1n m\00e1s rectas y por encima (z-index alto) */
-#card-3 { transform: translateX(-50%) rotate(-1deg) translateX(-15px);   z-index: 3; }
-#card-4 { transform: translateX(-50%) rotate(1deg) translateX(15px);    z-index: 3; }
-
-
-/* --- 4. Efecto Hover --- */
-.fan-card:hover {
-    z-index: 100; /* Se pone por encima de todas */
-    transform: scale(1.15) translateY(-20px) rotate(0deg);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-}
-
-/* --- 5. Responsividad --- */
-@media (max-width: 800px) {
-    .fan-container {
-        /* En m\00f3vil, se deshace el abanico y se apilan en vertical */
-        flex-direction: column;
-        position: static;
-        min-height: none;
-        padding-top: 2rem;
-    }
-
-    .fan-card {
-        position: static;
-        margin-bottom: 1.5rem;
-        width: 70%;
-        max-width: 250px;
-
-        /* Forzamos a que no haya transformaciones en el estado normal */
-        transform: none !important; 
-    }
-
-    .fan-card:hover {
-        /* Un hover m\00e1s simple para m\00f3vil */
-        transform: scale(1.05) !important;
-    }
-}
 
 /*
 ====================================
@@ -1052,5 +955,122 @@ Estilo para el Resumen Profesional (CV)
     }
     .job-bar-company {
         display: none; /* Ocultar para más espacio */
+    }
+}
+
+/*
+====================================
+Estilo de Fotos en un Tendedero (Clothesline)
+====================================
+*/
+
+/* --- 1. Main Container --- */
+.clothesline-container {
+    position: relative;
+    width: 100%;
+    max-width: 1200px; /* Max width of the container */
+    margin: 2rem auto;
+    min-height: 500px; /* Give it space */
+    padding: 2rem 0;
+}
+
+/* --- 2. The SVG Rope --- */
+.clothesline-rope {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 300px;
+    stroke: #5d5d5d; /* Rope color */
+    z-index: 1;
+    pointer-events: none; /* The rope should not be clickable */
+}
+
+/* --- 3. Individual Photo Cards --- */
+.photo-card {
+    display: block;
+    position: absolute; /* We use absolute positioning to hang them */
+    background: var(--blanco);
+    padding: 12px 12px 20px 12px; /* Polaroid style bottom padding */
+    border-radius: 4px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+    width: 200px; /* Fixed width for photos */
+    z-index: 5;
+    transform-origin: top center; /* This is key: they will swing from the pin */
+    transition: all 0.35s cubic-bezier(0.68, -0.55, 0.27, 1.55); /* Bouncy transition */
+}
+
+.photo-card img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border: 1px solid #eee;
+}
+
+.photo-card .caption {
+    padding-top: 10px;
+    text-align: center;
+}
+
+.photo-card .caption h3 {
+    margin: 0;
+    font-family: 'Gochi Hand', cursive;
+    font-size: 1.3rem;
+    color: #333;
+}
+
+/* --- 4. The Clothespin --- */
+.clothespin {
+    position: absolute;
+    top: -15px; /* Position it above the photo */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 18px;
+    height: 25px;
+    background-color: #d2b48c; /* Wooden color */
+    border: 1px solid #a08462;
+    border-radius: 2px;
+    box-shadow: inset 0 -3px 5px rgba(0,0,0,0.2);
+    z-index: 10; /* The pin is on top of everything */
+}
+
+/* --- 5. Positioning and Rotating Each Photo --- */
+/* We use nth-of-type to target each card in order */
+.photo-card:nth-of-type(1) { left: 10%; top: 125px; transform: rotate(-8deg); }
+.photo-card:nth-of-type(2) { left: 25%; top: 55px; transform: rotate(5deg); }
+.photo-card:nth-of-type(3) { left: 42%; top: 35px; transform: rotate(-6deg); }
+.photo-card:nth-of-type(4) { left: 58%; top: 38px; transform: rotate(4deg); }
+.photo-card:nth-of-type(5) { left: 73%; top: 65px; transform: rotate(-7deg); }
+.photo-card:nth-of-type(6) { left: 88%; top: 135px; transform: rotate(8deg); }
+
+/* --- 6. The Hover Effect --- */
+.photo-card:hover {
+    z-index: 20;
+    transform: scale(1.15) rotate(0deg) !important; /* Enlarge and straighten on hover */
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* --- 7. Responsive Design --- */
+@media (max-width: 992px) {
+    .clothesline-container {
+        /* On mobile, we stack them vertically and hide the rope */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 2rem;
+        min-height: auto;
+    }
+    .clothesline-rope {
+        display: none; /* Hide the rope */
+    }
+    .photo-card {
+        position: static; /* Disable absolute positioning */
+        transform: rotate(0deg) !important; /* Reset rotation */
+        width: 70%;
+        max-width: 250px;
+    }
+    .photo-card:hover {
+        /* Simpler hover for mobile */
+        transform: scale(1.05) !important;
     }
 }
