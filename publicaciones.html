@@ -60,7 +60,7 @@
 
     <main id="main">
         <div class="main-header">
-            <h1><span class="typed" data-typed-items="Publicaciones" data-en="Publications"></span></h1>
+            <h1><span class="typed" data-typed-items="Publicaciones, Ponencias, Documentos, Publicaciones" data-en="Publications"></span></h1>
         </div>
 
         <div class="content-wrapper">
@@ -110,18 +110,17 @@
                 });
             }
             // --- NEW: Typewriter Effect Initialization ---
-            const typed = document.querySelector('.typed');
-            if (typed) {
-                let typed_strings = typed.getAttribute('data-typed-items');
-                typed_strings = typed_strings.split(',');
-                new Typed('.typed', {
+            document.querySelectorAll('.typed').forEach(function(el) {
+                let typed_strings = el.getAttribute('data-typed-items');
+                typed_strings = typed_strings.split(',').map(function(s) { return s.trim(); });
+                new Typed(el, {
                     strings: typed_strings,
                     loop: false,
                     typeSpeed: 100,
                     backSpeed: 50,
                     backDelay: 2000
                 });
-            }
+            });
         });
     </script>
 
