@@ -795,88 +795,74 @@ Estilo para el Resumen Profesional (CV)
     z-index: 0;
 }
 
-
 /*
 ====================================
-NUEVO TIMELINE HORIZONTAL
+TIMELINE HORIZONTAL PROPORCIONAL Y DEFINITIVO
 ====================================
 */
 
-/* --- 1. Contenedor Principal --- */
+/* --- 1. Contenedor Principal (Scrollbox) --- */
 .timeline-container {
     position: relative;
     width: 100%;
-    padding: 30px 0 50px 0; /* Espacio para las tarjetas */
-    overflow-x: auto; /* Habilita el scroll horizontal */
+    padding: 20px 0 20px 0;
+    overflow-x: auto;
     overflow-y: hidden;
     /* Estilos para una barra de scroll más fina y estética */
     scrollbar-width: thin;
     scrollbar-color: var(--naranja-atomico) var(--gris-claro);
 }
+.timeline-container::-webkit-scrollbar { height: 8px; }
+.timeline-container::-webkit-scrollbar-track { background: var(--gris-claro); }
+.timeline-container::-webkit-scrollbar-thumb { background-color: var(--naranja-atomico); border-radius: 6px; }
 
-.timeline-container::-webkit-scrollbar {
-    height: 8px;
-}
-.timeline-container::-webkit-scrollbar-track {
-    background: var(--gris-claro);
-}
-.timeline-container::-webkit-scrollbar-thumb {
-    background-color: var(--naranja-atomico);
-    border-radius: 6px;
-}
-
-
-/* --- 2. Envoltorio de los Items (el que contiene la línea y la flecha) --- */
+/* --- 2. Envoltorio de los Items (el lienzo del timeline) --- */
 .timeline-items {
-    display: inline-flex; /* CLAVE: para que el ancho se base en el contenido y no en el 100% del contenedor */
-    align-items: flex-start;
+    display: block; /* Ya no es flex, sino un lienzo para posicionar */
     position: relative;
-    padding: 0 50px; /* Espacio para que el primer y último item no queden pegados a los bordes */
-    min-width: 100%;
-    height: 450px; /* Altura fija para el área del timeline */
+    width: 2000px; /* Un ancho grande para posicionar los elementos con comodidad */
+    height: 480px; /* Altura suficiente para tarjetas arriba y abajo */
 }
 
-/* --- 3. La Línea Horizontal y la Flecha (usando pseudo-elementos) --- */
+/* --- 3. La Línea Horizontal y la Flecha --- */
 .timeline-items::before {
     content: '';
     position: absolute;
-    top: 60px; /* Posición vertical de la línea */
+    top: 240px; /* Centrada verticalmente en el lienzo */
     left: 0;
     width: 100%;
     height: 4px;
     background-color: var(--azul-pizarra);
     z-index: 1;
 }
-
-/* La flecha al final de la línea */
 .timeline-items::after {
     content: '';
     position: absolute;
-    top: 51px; /* Alineada verticalmente con la línea */
-    right: 35px; /* Posición al final */
+    top: 231px; /* Alineada con la línea */
+    right: 15px; /* Al final del lienzo */
     width: 0;
     height: 0;
     border-style: solid;
-    border-width: 12px 0 12px 20px; /* Crea un triángulo (flecha) */
+    border-width: 12px 0 12px 20px;
     border-color: transparent transparent transparent var(--azul-pizarra);
     z-index: 1;
 }
 
-/* --- 4. Cada Item Individual del Timeline --- */
+/* --- 4. Estilo Base para Cada Item Individual --- */
 .timeline-item {
     display: flex;
-    flex-direction: column; /* El punto arriba, la tarjeta abajo */
+    flex-direction: column;
     align-items: center;
-    position: relative;
-    z-index: 3;
-    padding: 0 15px; /* Espaciado entre items reducido */
-    min-width: 200px; /* Ancho mínimo para cada "año" */
+    position: absolute; /* CLAVE: Cada item se posiciona de forma absoluta */
+    top: 180px; /* Centra el punto en la línea (240px - 50px/2 - 4px borde) */
+    width: 300px; /* Ancho para la tarjeta */
+    transform: translateX(-50%); /* Centra el item en su coordenada 'left' */
 }
 
 /* --- 5. El Punto (Año) en la línea --- */
 .timeline-dot {
-    width: 50px; /* Un poco más pequeño */
-    height: 50px;
+    width: 60px;
+    height: 60px;
     background-color: var(--gris-claro);
     border: 4px solid var(--azul-pizarra);
     border-radius: 50%;
@@ -890,11 +876,9 @@ NUEVO TIMELINE HORIZONTAL
     font-weight: 700;
     color: var(--azul-pizarra);
     font-family: var(--font-title);
-    font-size: 1.1rem;
-    flex-shrink: 0; /* Evita que el punto se encoja */
-    margin-top: 36px; /* Lo centra sobre la línea (top: 60px - (50px/2) + 4px borde) */
+    font-size: 1.2rem;
+    flex-shrink: 0;
 }
-
 .timeline-dot:hover {
     transform: scale(1.2);
     background-color: var(--naranja-atomico);
@@ -902,73 +886,98 @@ NUEVO TIMELINE HORIZONTAL
     color: white;
 }
 
-/* --- 6. Las Tarjetas de CV --- */
+/* --- 6. Posicionamiento PROPORCIONAL de cada item --- */
+/* Rango Aprox: 2009-2021. Cada 'left' es un porcentaje de los 2000px */
+[data-timeline-id="job1"] { left: 10%; }  /* 2009 */
+[data-timeline-id="job2"] { left: 28%; }  /* 2014 */
+[data-timeline-id="job3"] { left: 45%; }  /* 2016 (abajo) */
+[data-timeline-id="job4"] { left: 45%; flex-direction: column-reverse; top: 10px; } /* 2016 (arriba) */
+[data-timeline-id="job5"] { left: 60%; }  /* 2018 */
+[data-timeline-id="job6"] { left: 75%; }  /* 2019 */
+[data-timeline-id="job7"] { left: 90%; }  /* 2020 */
+
+
+/* --- 7. Estilo y Conectores de las Tarjetas --- */
 .timeline-item .cv-card {
     position: relative;
-    width: 280px; /* Ancho fijo para las tarjetas */
-    margin-top: 40px; /* Distancia desde la línea */
-    opacity: 1; /* Todas las tarjetas son visibles */
-    transform: scale(1);
+    width: 100%;
+    margin-top: 40px; /* Espacio desde la línea */
     transition: all 0.4s ease;
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.09);
 }
 
-/* Conector vertical desde el punto a la tarjeta */
+/* Tarjeta que va arriba (la de 2016) */
+[data-timeline-id="job4"] .cv-card {
+    margin-top: 0;
+    margin-bottom: 40px;
+}
+
+/* Conector vertical (por defecto, para tarjetas de abajo) */
 .timeline-item::after {
     content: '';
     position: absolute;
-    top: 88px; /* Debajo del punto */
+    top: 60px;
     left: 50%;
     transform: translateX(-50%);
     width: 3px;
-    height: 25px; /* Largo del conector */
+    height: 40px;
     background-color: #bdc3c7;
     z-index: 0;
 }
 
-/* --- 7. Estado Activo --- */
+/* Conector para la tarjeta que va arriba */
+[data-timeline-id="job4"]::after {
+    top: auto;
+    bottom: 60px;
+}
+
+/* --- 8. Estado Activo --- */
 .timeline-item .cv-card.active {
-    transform: translateY(-10px) scale(1.03); /* Se levanta un poco */
+    transform: translateY(-5px) scale(1.03);
     border: 2px solid var(--naranja-atomico);
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
 }
+[data-timeline-id="job4"] .cv-card.active {
+    transform: translateY(5px) scale(1.03);
+}
 
-/* --- 8. Ocultar el layout antiguo --- */
-/* Esta regla ya debería existir, pero es bueno confirmarlo */
+/* --- 9. Ocultar el layout antiguo --- */
 #experiencia .cv-grid {
     display: none;
 }
 
-/* --- 9. Responsividad (para móviles, volvemos a un layout vertical simple) --- */
+/* --- 10. Responsividad (Vuelve a ser vertical y simple en móvil) --- */
 @media (max-width: 992px) {
     .timeline-container {
-      overflow-x: hidden; /* Desactivamos scroll horizontal en móvil */
+      overflow-x: hidden;
     }
     .timeline-items {
       display: flex;
-      flex-direction: column; /* Apilamos verticalmente */
-      align-items: center; /* Centramos los items */
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
       height: auto;
       padding: 0 20px;
     }
     .timeline-items::before, .timeline-items::after {
-        display: none; /* Ocultamos la línea y flecha horizontales */
+        display: none;
     }
     .timeline-item {
-        flex-direction: column; /* Todos los items en la misma dirección */
+        position: static; /* CLAVE: Desactiva el posicionamiento absoluto */
+        transform: none;
         width: 100%;
         max-width: 400px;
         margin-bottom: 40px;
+        flex-direction: column !important; /* Fuerza la dirección */
+        top: auto !important;
+        left: auto !important;
     }
     .timeline-item::after {
-        display: none; /* Ocultamos los conectores */
+        display: none;
     }
     .timeline-item .cv-card {
-        margin-top: 20px;
+        margin: 20px 0 0 0 !important;
         width: 100%;
-    }
-    .timeline-item .cv-card.active {
-        transform: scale(1.02);
     }
 }
 
