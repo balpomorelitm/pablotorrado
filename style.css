@@ -741,10 +741,10 @@ Tira de Imágenes Vertical
 
 /* --- 2. Contenedor de la Tira de Imágenes --- */
 .image-strip-container {
-    flex-basis: 320px; /* Ancho base de la columna de imágenes */
+    flex-basis: 160px; /* Ancho reducido de la columna de imágenes */
     flex-shrink: 0; /* Evita que la columna se encoja */
-    padding-top: 150px; /* Espacio para que la primera imagen no se corte */
-    padding-bottom: 150px;
+    padding-top: 20px; /* Collage más cerca de la parte superior */
+    padding-bottom: 20px;
 }
 
 /* --- 3. Estilo de cada Imagen en la Tira --- */
@@ -758,7 +758,7 @@ Tira de Imágenes Vertical
     width: 100%;
     
     /* LA CLAVE DEL SOLAPAMIENTO: Margen inferior negativo */
-    margin-bottom: -200px; 
+    margin-bottom: -100px; /* Ajuste para el nuevo tamaño reducido */
     
     transition: all 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
@@ -814,7 +814,7 @@ Tira de Imágenes Vertical
         padding-top: 0;
         padding-bottom: 0;
         width: 100%;
-        max-width: 350px; /* Limita el ancho en móvil */
+        max-width: 175px; /* Limita el ancho en móvil para mantener la escala */
     }
     
     .strip-item {
