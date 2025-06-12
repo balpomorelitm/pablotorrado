@@ -464,7 +464,7 @@ Sidebar Refinements: Social Links & Language Switcher
   justify-content: center;
   font-family: 'Jersey 15', cursive;
   font-weight: 700;
-  font-size: 14px;
+  font-size: 28px; /* Increased font size for sidebar buttons */
   border: 2px solid #5a6d7e;
   background-color: transparent;
   color: #a8b9c9;
@@ -526,7 +526,7 @@ body.lang-en-active .lang-es {
   padding: 12px 15px;
   margin-bottom: 8px;
   transition: all 0.3s ease; /* Transici\u00f3n suave */
-  font-size: 15px;
+  font-size: 30px; /* Enlarged link text in sidebar */
   border-radius: 5px;
   text-decoration: none;
 }
