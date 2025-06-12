@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title data-en="About Me - Pablo Torrado">Sobre Mí - Pablo Torrado</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Playfair+Display:wght@700&family=Source+Code+Pro:wght@500&family=Work+Sans:wght@400;700&family=Jersey+15&family=Barrio&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/e396b3a936.js" crossorigin="anonymous"></script>
+    <link rel="icon" type="image/png" href="imagenes/favicon.png">
+    <style>
+        /* Styles for the About Me page content */
+        .about-me-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: left;
+            font-size: 1.1rem;
+            line-height: 1.9;
+        }
+
+        .about-me-content p {
+            margin-bottom: 1.5rem;
+        }
+
+        .about-me-content h2 {
+            font-size: 2rem;
+            color: var(--naranja-atomico);
+            margin-top: 3rem;
+            text-align: center;
+        }
+
+        /* Instagram Grid Styles */
+        .instagram-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .instagram-grid a {
+            display: block;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .instagram-grid a:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+        }
+
+        .instagram-grid img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        
+        @media (max-width: 768px) {
+            .instagram-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 0.5rem;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <header id="header">
+        <div class="d-flex flex-column">
+
+            <div class="profile">
+                <img src="imagenes/pixelpic.webp" alt="Pablo Torrado" class="img-fluid profile-picture">
+                <h1 class="text-light"><a href="https://www.web.smlc.hku.hk/teachingstaff/torrado-solo-de-zaldivar-pablo">Pablo Torrado</a></h1>
+                
+                <div class="social-links text-center">
+                    <a href="mailto:pablot@hku.hk" class="email">📧</a>
+                </div>
+            </div>
+
+            <nav class="nav-menu">
+                 <ul>
+                    <li class="lang-es"><a href="index.html"><span>Inicio</span></a></li>
+                    <li class="lang-es"><a href="curriculum.html"><span>Currículum</span></a></li>
+                    <li class="lang-es"><a href="proyectos.html"><span>Proyectos</span></a></li>
+                    <li class="lang-es"><a href="publicaciones.html"><span>Publicaciones</span></a></li>
+                    <li class="lang-es"><a href="sobre-mi.html"><span>Sobre Mí</span></a></li>
+                    
+                    <li class="lang-en"><a href="index.html"><span>Home</span></a></li>
+                    <li class="lang-en"><a href="curriculum.html"><span>Resume</span></a></li>
+                    <li class="lang-en"><a href="proyectos.html"><span>Projects</span></a></li>
+                    <li class="lang-en"><a href="publicaciones.html"><span>Publications</span></a></li>
+                    <li class="lang-en"><a href="sobre-mi.html"><span>About Me</span></a></li>
+                </ul>
+            </nav>
+
+            <div class="mt-auto"></div>
+            
+            <div class="language-switcher">
+                <button id="lang-es-btn" class="lang-button active">
+                    <svg width="20" height="15" viewBox="0 0 20 15"><path fill="#c60b1e" d="M0 0h20v5H0z"/><path fill="#ffc400" d="M0 5h20v5H0z"/><path fill="#c60b1e" d="M0 10h20v5H0z"/></svg>
+                    <span>ES</span>
+                </button>
+                <button id="lang-en-btn" class="lang-button">
+                    <svg width="20" height="15" viewBox="0 0 60 30"><clipPath id="a"><path d="M0 0v30h60V0z"/></clipPath><clipPath id="b"><path d="M30 15 60 0v30L30 15z"/></clipPath><path d="M0 0v30h60V0z" fill="#012169"/><path d="m0 0 60 30m0-30L0 30" stroke="#fff" stroke-width="6"/><path d="m0 0 60 30m0-30L0 30" clip-path="url(#b)" stroke="#C8102E" stroke-width="4"/><path d="M30 0v30M0 15h60" stroke="#fff" stroke-width="10"/><path d="M30 0v30M0 15h60" stroke="#C8102E" stroke-width="6"/></svg>
+                    <span>EN</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <button type="button" class="mobile-nav-toggle"><span class="menu-icon" data-state="burger"><img src="imagenes/burguer.webp" alt="Menú" class="menu-icon-img"></span></button>
+
+    <main id="main">
+        <div class="main-header">
+            <h1><span class="typed" data-typed-items="Sobre Mí, Personal, Hobbies, Sobre Mí" data-en="About Me"></span></h1>
+        </div>
+
+        <div class="content-wrapper">
+            <div class="about-me-content">
+                <p data-es="Más allá de mi rol académico, soy una persona curiosa a la que le encanta explorar nuevas formas de aprender y enseñar. Disfruto experimentando con herramientas tecnológicas como Anki, buscando siempre maneras de hacer el aprendizaje de idiomas más efectivo y atractivo." data-en="Beyond my academic role, I am a curious person who loves to explore new ways of learning and teaching. I enjoy experimenting with technological tools like Anki, always looking for ways to make language learning more effective and engaging.">
+                    Más allá de mi rol académico, soy una persona curiosa a la que le encanta explorar nuevas formas de aprender y enseñar. Disfruto experimentando con herramientas tecnológicas como Anki, buscando siempre maneras de hacer el aprendizaje de idiomas más efectivo y atractivo.
+                </p>
+                <p data-es="Actualmente, esta pasión culmina en mi tesis doctoral con la Universidad de Jaén. Mi investigación se centra en el uso de la repetición espaciada y herramientas como Anki para optimizar la adquisición de léxico en estudiantes de español como lengua extranjera." data-en="Currently, this passion is culminating in my doctoral thesis with the University of Jaén. My research focuses on the use of spaced repetition and tools like Anki to optimize vocabulary acquisition for students of Spanish as a foreign language.">
+                    Actualmente, esta pasión culmina en mi tesis doctoral con la Universidad de Jaén. Mi investigación se centra en el uso de la repetición espaciada y herramientas como Anki para optimizar la adquisición de léxico en estudiantes de español como lengua extranjera.
+                </p>
+                
+                <h2 data-es="Hobby: La Fotografía" data-en="Hobby: Photography">Hobby: La Fotografía</h2>
+                <p data-es="Cuando no estoy creando materiales o investigando, mi principal afición es la fotografía. Me encanta capturar momentos, paisajes y la esencia de los lugares que visito. Puedes ver mi trabajo y seguir mis aventuras visuales en Instagram." data-en="When I'm not creating materials or researching, my main hobby is photography. I love capturing moments, landscapes, and the essence of the places I visit. You can see my work and follow my visual adventures on Instagram.">
+                    Cuando no estoy creando materiales o investigando, mi principal afición es la fotografía. Me encanta capturar momentos, paisajes y la esencia de los lugares que visito. Puedes ver mi trabajo y seguir mis aventuras visuales en Instagram.
+                </p>
+                <a href="https://www.instagram.com/pablotorrapics" class="cta-button" target="_blank">Ver en Instagram &rarr;</a>
+
+                <div class="instagram-grid">
+                    <a href="https://www.instagram.com/pablotorrapics" target="_blank"><img src="imagenes/insta_placeholder_0.webp" alt="Instagram Photo 0"></a>
+                    <a href="https://www.instagram.com/pablotorrapics" target="_blank"><img src="imagenes/insta_placeholder_1.webp" alt="Instagram Photo 1"></a>
+                    <a href="https://www.instagram.com/pablotorrapics" target="_blank"><img src="imagenes/insta_placeholder_2.webp" alt="Instagram Photo 2"></a>
+                    <a href="https://www.instagram.com/pablotorrapics" target="_blank"><img src="imagenes/insta_placeholder_3.webp" alt="Instagram Photo 3"></a>
+                    <a href="https://www.instagram.com/pablotorrapics" target="_blank"><img src="imagenes/insta_placeholder_4.webp" alt="Instagram Photo 4"></a>
+                    <a href="https://www.instagram.com/pablotorrapics" target="_blank"><img src="imagenes/insta_placeholder_5.webp" alt="Instagram Photo 5"></a>
+                    <a href="https://www.instagram.com/pablotorrapics" target="_blank"><img src="imagenes/insta_placeholder_6.webp" alt="Instagram Photo 6"></a>
+                    <a href="https://www.instagram.com/pablotorrapics" target="_blank"><img src="imagenes/insta_placeholder_7.webp" alt="Instagram Photo 7"></a>
+                    <a href="https://www.instagram.com/pablotorrapics" target="_blank"><img src="imagenes/insta_placeholder_8.webp" alt="Instagram Photo 8"></a>
+                    <a href="https://www.instagram.com/pablotorrapics" target="_blank"><img src="imagenes/insta_placeholder_9.webp" alt="Instagram Photo 9"></a>
+                    <a href="https://www.instagram.com/pablotorrapics" target="_blank"><img src="imagenes/insta_placeholder_10.webp" alt="Instagram Photo 10"></a>
+                    <a href="https://www.instagram.com/pablotorrapics" target="_blank"><img src="imagenes/insta_placeholder_11.webp" alt="Instagram Photo 11"></a>
+                    <a href="https://www.instagram.com/pablotorrapics" target="_blank"><img src="imagenes/insta_placeholder_12.webp" alt="Instagram Photo 12"></a>
+                    <a href="https://www.instagram.com/pablotorrapics" target="_blank"><img src="imagenes/insta_placeholder_13.webp" alt="Instagram Photo 13"></a>
+                    <a href="https://www.instagram.com/pablotorrapics" target="_blank"><img src="imagenes/insta_placeholder_14.webp" alt="Instagram Photo 14"></a>
+                    <a href="https://www.instagram.com/pablotorrapics" target="_blank"><img src="imagenes/insta_placeholder_15.webp" alt="Instagram Photo 15"></a>
+                    <a href="https://www.instagram.com/pablotorrapics" target="_blank"><img src="imagenes/insta_placeholder_16.webp" alt="Instagram Photo 16"></a>
+                    <a href="https://www.instagram.com/pablotorrapics" target="_blank"><img src="imagenes/insta_placeholder_17.webp" alt="Instagram Photo 17"></a>
+                    <a href="https://www.instagram.com/pablotorrapics" target="_blank"><img src="imagenes/insta_placeholder_18.webp" alt="Instagram Photo 18"></a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="lang-toggle.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileNavToggle = document.querySelector('.mobile-nav-toggle');
+            if (mobileNavToggle) {
+                mobileNavToggle.addEventListener('click', function(e) {
+                    document.body.classList.toggle('mobile-nav-active');
+                    const icon = this.querySelector('.menu-icon');
+                    if (icon.dataset.state === 'burger') {
+                        icon.innerHTML = '✖';
+                        icon.dataset.state = 'close';
+                    } else {
+                        icon.innerHTML = '<img src="imagenes/burguer.webp" alt="Menú" class="menu-icon-img">';
+                        icon.dataset.state = 'burger';
+                    }
+                });
+            }
+            document.querySelectorAll('.typed').forEach(function(el) {
+                let typed_strings = el.getAttribute('data-typed-items');
+                typed_strings = typed_strings.split(',').map(function(s) { return s.trim(); });
+                new Typed(el, {
+                    strings: typed_strings,
+                    loop: false,
+                    typeSpeed: 100,
+                    backSpeed: 50,
+                    backDelay: 2000
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>
