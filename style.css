@@ -432,7 +432,7 @@ Sidebar Refinements: Social Links & Language Switcher
 
 /* --- Simplified Social Links --- */
 .social-links {
-  padding: 15px 0;
+  padding: 5px 0; /* Reduced vertical padding to bring nav links closer */
   text-align: center;
 }
 .social-links a {
@@ -505,7 +505,7 @@ body.lang-en-active .lang-es {
 
 /* --- Men\u00fa de Navegaci\u00f3n Mejorado --- */
 .nav-menu {
-  padding-top: 30px;
+  padding-top: 15px; /* Less space between email button and first link */
 }
 
 .nav-menu * {
