@@ -540,7 +540,7 @@ body.lang-en-active .lang-es {
 
 /* Efecto hover para enlaces NO activos */
 .nav-menu a:hover {
-  color: #fff;
+  color: var(--naranja-atomico);
   background: rgba(255, 255, 255, 0.1); /* Fondo sutil al pasar el rat\u00f3n */
 }
 .nav-menu a:hover i {
@@ -669,11 +669,17 @@ Main Content Wrapper
 
 /* --- 2. Nuevo Estilo para el Enlace Activo en la Barra Lateral --- */
 
-.nav-menu .active > a,
-.nav-menu li:hover > a {
+.nav-menu .active > a {
   text-decoration: none;
   background-color: #ffffff;
   color: var(--azul-pizarra);
+  border-radius: 5px;
+}
+
+.nav-menu li:hover > a {
+  text-decoration: none;
+  background-color: #ffffff;
+  color: var(--naranja-atomico);
   border-radius: 5px;
 }
 
@@ -682,16 +688,16 @@ Main Content Wrapper
   color: var(--naranja-atomico);
 }
 
-.nav-menu a:hover, .nav-menu .active > a {
-    color: var(--azul-pizarra);
+.nav-menu a:hover {
+    color: var(--naranja-atomico);
 }
 
-.nav-menu a:hover span, .nav-menu .active > a span {
-    color: var(--azul-pizarra);
+.nav-menu a:hover span {
+    color: var(--naranja-atomico);
 }
 
-.nav-menu a:hover, .nav-menu .active > a, .nav-menu li:hover > a {
-    color: inherit;
+.nav-menu .active > a span {
+    color: var(--azul-pizarra);
 }
 
 /*
