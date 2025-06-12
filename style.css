@@ -177,6 +177,24 @@ h3 {
     font-family: 'Playfair Display', serif;
 }
 
+/* Halo effect for university job cards */
+.job-card.type-uni {
+    box-shadow: 0 0 15px rgba(255, 107, 107, 0.6), 0 6px 20px rgba(0, 0, 0, 0.09);
+}
+
+.job-card.type-uni:hover {
+    box-shadow: 0 0 20px rgba(255, 107, 107, 0.8), 0 10px 30px rgba(0, 0, 0, 0.12);
+}
+
+/* Reduce size of corporate job cards */
+.job-card.type-corporate {
+    transform: scale(0.95);
+}
+
+.job-card.type-corporate:hover {
+    transform: translateY(-8px) scale(0.95);
+}
+
 /* Estilos para tarjetas de formación */
 .education-card {
     background-color: #fdfaf2;
