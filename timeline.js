@@ -3,10 +3,10 @@ document.addEventListener('DOMContentLoaded', function() {
     // Definimos todos los datos aquí para que sea más fácil de gestionar.
     const jobsData = [
         {
-            id: 'edu2', // new master's degree
+            id: 'edu2',
             company: 'Universidad Antonio de Nebrija',
-            location: 'Madrid',
-            title: 'Máster: Lingüística Aplicada a la Enseñanza del Español como Lengua Extranjera',
+            location: 'Madrid, España',
+            title: 'Máster: Lingüística Aplicada',
             startDate: '2014-09',
             endDate: '2016-06',
             tasks: [
@@ -15,11 +15,11 @@ document.addEventListener('DOMContentLoaded', function() {
             ]
         },
         {
-            id: 'edu1', // new undergraduate degree
+            id: 'edu1',
             company: 'Universidad de Salamanca',
             location: 'Salamanca, España',
             title: 'Filología Hispánica',
-            startDate: '2008-01',
+            startDate: '2008-06', // Represents the completion date
             endDate: '2008-06',
             tasks: [
                 'Completed undergraduate studies in Hispanic Philology.'
@@ -113,124 +113,102 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     ];
 
-    // --- 2. NEW TIMELINE RENDERING ---
+    // --- 2. NEW BLOCK TIMELINE RENDERER ---
     const timelineContainer = document.querySelector('.timeline-container');
-    if (timelineContainer) {
-        // Clear any existing content
-        timelineContainer.innerHTML = '';
+    const timelineItemsWrapper = document.querySelector('.timeline-items');
 
-        // Define the timeline range
-        const startYear = 2025;
-        const endYear = 2008;
-        const totalYears = startYear - endYear;
+    // Sort data by date, oldest to newest, to handle overlaps correctly
+    jobsData.sort((a, b) => new Date(a.startDate) - new Date(b.startDate));
 
-        // Create the main wrapper
-        const wrapper = document.createElement('div');
-        wrapper.className = 'timeline-wrapper';
+    const startYear = 2008;
+    const endYear = 2025;
+    const totalYears = endYear - startYear;
 
-        // Create the axis line
-        const axis = document.createElement('div');
-        axis.className = 'timeline-axis';
-        wrapper.appendChild(axis);
+    // Helper to convert a date to a percentage position
+    const dateToPercentage = (dateStr) => {
+        const date = new Date(dateStr);
+        const year = date.getFullYear();
+        const month = date.getMonth();
+        const timeIntoYear = month / 12;
+        const totalTime = (year + timeIntoYear) - startYear;
+        return (totalTime / totalYears) * 100;
+    };
 
-        // Create year markers
-        const yearsContainer = document.createElement('div');
-        yearsContainer.className = 'timeline-years';
-        for (let i = 0; i <= totalYears; i++) {
-            const year = startYear - i;
-            const yearEl = document.createElement('div');
-            yearEl.className = 'timeline-year';
-            yearEl.textContent = year;
-            yearsContainer.appendChild(yearEl);
+    let lastPosition = -10; // Keep track of last item's position to alternate
+    let isOdd = true;
+
+    jobsData.forEach(job => {
+        // Determine position
+        const position = dateToPercentage(job.startDate);
+
+        // If this event is too close to the last one, flip its orientation
+        if ((position - lastPosition) < 10) { // 10% threshold
+            isOdd = !isOdd;
+        } else {
+            isOdd = true; // Default to odd (top)
         }
-        wrapper.appendChild(yearsContainer);
 
-        // Create job/event markers
-        const markersContainer = document.createElement('div');
-        markersContainer.className = 'timeline-markers';
+        const eventDiv = document.createElement('div');
+        eventDiv.className = isOdd ? 'timeline-event event-odd' : 'timeline-event event-even';
+        eventDiv.style.left = `${position}%`;
 
-        // Helper function to convert a date to a percentage of the timeline
-        const dateToPercentage = (dateStr) => {
-            const date = new Date(dateStr);
-            const year = date.getFullYear();
-            const month = date.getMonth(); // 0-11
-            const timeIntoYear = month / 12;
-            const totalTime = (year + timeIntoYear) - endYear;
-            // We calculate position from the right, as time goes backwards
-            return 100 - ((totalTime / totalYears) * 100);
-        };
+        const cardDiv = document.createElement('div');
+        cardDiv.className = 'timeline-card';
+        cardDiv.dataset.jobId = job.id; // Critical for modal click
 
-        jobsData.forEach(job => {
-            const end = job.endDate === 'Presente' ? '2025-06-12' : job.endDate; // Use current date for "Presente"
-            const start = job.startDate;
+        const startDisplayYear = new Date(job.startDate).getFullYear();
+        const endDisplayYear = job.endDate === 'Presente' ? 'Now' : new Date(job.endDate).getFullYear();
 
-            const leftPos = dateToPercentage(end);
-            const rightPos = dateToPercentage(start);
-            const width = rightPos - leftPos;
+        cardDiv.innerHTML = `
+            <h4>${job.company}</h4>
+            <p>${job.title}</p>
+            <p><strong>(${startDisplayYear} - ${endDisplayYear})</strong></p>
+        `;
 
-            const marker = document.createElement('div');
-            marker.className = 'job-marker';
-            marker.dataset.jobId = job.id; // Link to the job data
-            marker.style.left = `${leftPos}%`;
-            marker.style.width = `${width}%`;
+        eventDiv.appendChild(cardDiv);
+        timelineItemsWrapper.appendChild(eventDiv);
 
-            const startDisplayYear = new Date(start).getFullYear();
-            const endDisplayYear = job.endDate === 'Presente' ? 'Presente' : new Date(end).getFullYear();
-
-            marker.innerHTML = `
-                <span class="marker-title">${job.title}</span>
-                <span class="marker-period">${startDisplayYear} - ${endDisplayYear}</span>
-            `;
-            markersContainer.appendChild(marker);
-        });
-
-        wrapper.appendChild(markersContainer);
-        timelineContainer.appendChild(wrapper);
-
-        // Re-link the click event to the new markers
-        timelineContainer.addEventListener('click', function(event) {
-            const marker = event.target.closest('.job-marker');
-            if (!marker) return;
-
-            const jobId = marker.dataset.jobId;
-            const jobData = jobsData.find(j => j.id === jobId);
-
-            if (jobData) {
-                const modal = document.getElementById('timeline-modal');
-                const modalContent = modal.querySelector('.modal-card-content');
-                const endDisplayYear = jobData.endDate === 'Presente' ? 'Presente' : new Date(jobData.endDate).getFullYear();
-                
-                modalContent.innerHTML = `
-                    <h3>${jobData.company}</h3>
-                    <p class="job-location">${jobData.location}</p>
-                    <p class="job-title">${jobData.title}</p>
-                    <p class="job-date">${new Date(jobData.startDate).getFullYear()} - ${endDisplayYear}</p>
-                    <ul>
-                        ${jobData.tasks.map(task => `<li>${task}</li>`).join('')}
-                    </ul>
-                `;
-                modal.classList.add('visible');
-            }
-        });
-    }
+        lastPosition = position;
+    });
 
 
-    // --- 3. LÓGICA DE LA VENTANA MODAL (Modified slightly) ---
-    // The click logic is now inside the rendering block to ensure it's attached after elements are created.
-    // We only need the closing logic here.
+    // --- 3. MODAL LOGIC ---
     const modal = document.getElementById('timeline-modal');
-    if (modal) {
-        const closeModalButton = modal.querySelector('.modal-close');
-        
-        function closeModal() {
-            modal.classList.remove('visible');
-        }
+    const modalContent = modal.querySelector('.modal-card-content');
+    const closeModalButton = modal.querySelector('.modal-close');
 
-        closeModalButton.addEventListener('click', closeModal);
-        modal.addEventListener('click', function(event) {
-            if (event.target === modal) {
-                closeModal();
-            }
-        });
+    // Event listener for the entire timeline area
+    timelineItemsWrapper.addEventListener('click', function(event) {
+        const card = event.target.closest('.timeline-card');
+        if (!card) return;
+
+        const jobId = card.dataset.jobId;
+        const jobData = jobsData.find(j => j.id === jobId);
+
+        if (jobData) {
+            const endDisplayYear = jobData.endDate === 'Presente' ? 'Presente' : new Date(jobData.endDate).getFullYear();
+            modalContent.innerHTML = `
+                <h3>${jobData.company}</h3>
+                <p class="job-location">${jobData.location}</p>
+                <p class="job-title">${jobData.title}</p>
+                <p class="job-date">${new Date(jobData.startDate).getFullYear()} - ${endDisplayYear}</p>
+                <ul>
+                    ${jobData.tasks.map(task => `<li>${task}</li>`).join('')}
+                </ul>
+            `;
+            modal.classList.add('visible');
+        }
+    });
+
+    // Functions to close the modal
+    function closeModal() {
+        modal.classList.remove('visible');
     }
+
+    closeModalButton.addEventListener('click', closeModal);
+    modal.addEventListener('click', function(event) {
+        if (event.target === modal) {
+            closeModal();
+        }
+    });
 });
