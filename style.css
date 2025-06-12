@@ -524,7 +524,7 @@ body.lang-en-active .lang-es {
   align-items: center;
   color: #a8b9c9;
   padding: 12px 15px;
-  margin-bottom: 8px;
+  margin-bottom: 4px;
   transition: all 0.3s ease; /* Transici\u00f3n suave */
   font-size: 30px; /* Enlarged link text in sidebar */
   border-radius: 5px;
