@@ -812,8 +812,101 @@ Mosaico de Proyectos con Diseño
     }
 
     /* En móvil, hacemos que todas las imágenes ocupen 1 columna */
-    .span-h-2 {
+.span-h-2 {
         grid-column: span 1;
     }
 }
+
+/*
+====================================
+Estilo de Collage de Polaroids
+====================================
+*/
+
+/* --- 1. Contenedor Principal del Collage --- */
+.collage-container {
+    position: relative;
+    width: 100%;
+    max-width: 900px;
+    height: 550px;
+    margin: 4rem auto;
+}
+
+/* --- 2. Estilo de cada "Polaroid" --- */
+.collage-item {
+    position: absolute;
+    background-color: var(--blanco);
+    padding: 10px;
+    padding-bottom: 45px;
+    border-radius: 4px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease-in-out;
+    width: 30%;
+}
+
+.collage-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* --- 3. Posicionamiento Manual de cada Polaroid --- */
+#item-1 { top: 5%; left: 5%; transform: rotate(-8deg); z-index: 1; }
+#item-2 { top: 25%; left: 20%; transform: rotate(4deg); z-index: 2; width: 28%; }
+#item-3 { top: 10%; left: 55%; transform: rotate(10deg); z-index: 1; width: 35%; }
+#item-4 { top: 45%; left: 45%; transform: rotate(-5deg); z-index: 3; width: 32%; }
+#item-5 { top: 50%; left: 10%; transform: rotate(6deg); z-index: 2; }
+#item-6 { top: 60%; left: 65%; transform: rotate(0deg); z-index: 2; width: 25%; }
+
+/* --- 4. Texto de la Polaroid --- */
+.collage-item .caption {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    right: 10px;
+    text-align: center;
+}
+.collage-item .caption h3 {
+    margin: 0;
+    font-family: 'Gochi Hand', cursive;
+    font-size: 1.1rem;
+    color: var(--azul-pizarra);
+}
+
+/* --- 5. Efecto Hover --- */
+.collage-item:hover {
+    transform: rotate(0deg) scale(1.2);
+    z-index: 10;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* --- 6. Responsividad para Móviles --- */
+@media (max-width: 992px) {
+    .collage-container {
+        position: static;
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 3rem;
+    }
+
+    .collage-item {
+        position: static;
+        width: 60%;
+        max-width: 300px;
+        transform: rotate(0deg) !important;
+    }
+
+    #item-1, #item-2, #item-3, #item-4, #item-5, #item-6 {
+        position: static;
+        top: auto;
+        left: auto;
+    }
+
+    .collage-item:hover {
+        transform: scale(1.05);
+    }
+}
+
 
