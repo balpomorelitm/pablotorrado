@@ -11,8 +11,15 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    function switchLanguage(lang) {
+    function switchLanguage(lang, save = true) {
         htmlEl.setAttribute('lang', lang);
+        if (save) {
+            try {
+                localStorage.setItem('preferredLang', lang);
+            } catch (e) {
+                // Ignore write errors
+            }
+        }
 
         if (lang === 'en') {
             document.body.classList.add('lang-en-active');
@@ -36,4 +43,14 @@ document.addEventListener('DOMContentLoaded', function() {
     if (enBtn) {
         enBtn.addEventListener('click', function () { switchLanguage('en'); });
     }
+
+    // Apply saved language preference on load
+    let savedLang;
+    try {
+        savedLang = localStorage.getItem('preferredLang');
+    } catch (e) {
+        savedLang = null;
+    }
+
+    switchLanguage(savedLang || htmlEl.getAttribute('lang'), false);
 });
