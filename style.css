@@ -726,13 +726,14 @@ Mosaico de Proyectos con Diseño
 
 /*
 ====================================
-Tira de Imágenes Vertical
+Tira de Imágenes Horizontal
 ====================================
 */
 
 /* --- 1. Layout Principal de la Página de Inicio --- */
 .home-layout {
     display: flex;
+    flex-direction: column; /* Collage debajo del texto */
     align-items: center;
     gap: 2rem;
     padding: 2rem;
@@ -747,8 +748,10 @@ Tira de Imágenes Vertical
 
 /* --- 2. Contenedor de la Tira de Imágenes --- */
 .image-strip-container {
-    flex-basis: 160px; /* Ancho reducido de la columna de imágenes */
-    flex-shrink: 0; /* Evita que la columna se encoja */
+    display: flex;
+    justify-content: center;
+    flex-wrap: nowrap;
+    width: 100%;
     padding-top: 20px; /* Collage más cerca de la parte superior */
     padding-bottom: 20px;
 }
@@ -761,12 +764,16 @@ Tira de Imágenes Vertical
     padding: 12px;
     border-radius: 8px;
     box-shadow: 0 5px 15px rgba(44, 62, 80, 0.15);
-    width: 100%;
-    
-    /* LA CLAVE DEL SOLAPAMIENTO: Margen inferior negativo */
-    margin-bottom: -100px; /* Ajuste para el nuevo tamaño reducido */
-    
+    width: 160px;
+
+    /* LA CLAVE DEL SOLAPAMIENTO: Margen derecho negativo */
+    margin-right: -100px;
+    margin-bottom: 0;
+
     transition: all 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+.strip-item:last-child {
+    margin-right: 0;
 }
 
 /* Rotación inicial para cada imagen */
@@ -807,24 +814,18 @@ Tira de Imágenes Vertical
 
 /* --- 5. Responsividad --- */
 @media (max-width: 992px) {
-    .home-layout {
-        flex-direction: column; /* Apila el texto sobre las imágenes */
-        padding: 1rem;
-    }
-
     .home-intro-text {
         text-align: center;
     }
     
     .image-strip-container {
+        flex-wrap: wrap;
         padding-top: 0;
         padding-bottom: 0;
-        width: 100%;
-        max-width: 175px; /* Limita el ancho en móvil para mantener la escala */
     }
-    
+
     .strip-item {
-        /* En móvil, quitamos el solapamiento para que sea usable */
-        margin-bottom: 2rem;
+        margin-right: 0;
+        margin-bottom: 1rem;
     }
 }
