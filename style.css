@@ -773,14 +773,15 @@ Estilo de Cartas en Abanico (Fan Out)
 .fan-card {
     display: block;
     position: absolute; /* Usamos absoluto para poder transformar desde un mismo punto */
+    left: 50%; /* Partimos del centro del contenedor */
     width: 220px; /* Ancho fijo para las cartas */
     height: auto; /* LA CLAVE: la altura se adapta al contenido */
-    
+
     background: var(--blanco);
     padding: 12px;
     border-radius: 12px;
     box-shadow: 0 10px 20px rgba(44, 62, 80, 0.2);
-    
+
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     transform-origin: bottom center; /* Pivotan desde el centro de su base */
 }
@@ -805,15 +806,15 @@ Estilo de Cartas en Abanico (Fan Out)
 
 /* --- 3. Posicionamiento y Rotaci\00f3n de cada Carta (El Abanico) --- */
 /* Las cartas de los extremos est\00e1n m\00e1s rotadas y por debajo (z-index bajo) */
-#card-1 { transform: rotate(-12deg) translateX(-60%); z-index: 1; }
-#card-6 { transform: rotate(12deg) translateX(60%);  z-index: 1; }
+#card-1 { transform: translateX(-50%) rotate(-12deg) translateX(-120px); z-index: 1; }
+#card-6 { transform: translateX(-50%) rotate(12deg) translateX(120px);  z-index: 1; }
 
-#card-2 { transform: rotate(-6deg) translateX(-30%);  z-index: 2; }
-#card-5 { transform: rotate(6deg) translateX(30%);   z-index: 2; }
+#card-2 { transform: translateX(-50%) rotate(-6deg) translateX(-60px);  z-index: 2; }
+#card-5 { transform: translateX(-50%) rotate(6deg) translateX(60px);   z-index: 2; }
 
 /* Las cartas centrales est\00e1n m\00e1s rectas y por encima (z-index alto) */
-#card-3 { transform: rotate(-1deg) translateX(-5%);   z-index: 3; }
-#card-4 { transform: rotate(1deg) translateX(5%);    z-index: 3; }
+#card-3 { transform: translateX(-50%) rotate(-1deg) translateX(-15px);   z-index: 3; }
+#card-4 { transform: translateX(-50%) rotate(1deg) translateX(15px);    z-index: 3; }
 
 
 /* --- 4. Efecto Hover --- */
