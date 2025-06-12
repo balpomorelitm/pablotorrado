@@ -718,193 +718,107 @@ Mosaico de Proyectos con Diseño
     margin: 2rem auto;
 }
 
-/* --- 2. Cada "Item" del Mosaico --- */
-.mosaic-item {
-    position: relative; /* Necesario para posicionar la capa superpuesta */
-    overflow: hidden; /* Evita que la imagen se salga al hacer zoom */
-    border-radius: 12px;
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    display: block; /* Para que la etiqueta <a> o <div> ocupe el espacio */
-}
-
-/* --- 3. Estilos de la Imagen --- */
-.mosaic-item img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* Asegura que la imagen cubra el espacio sin deformarse */
-    transition: transform 0.4s ease-in-out, filter 0.4s ease;
-}
-
-/* --- 4. Capa Superpuesta (Overlay) --- */
-.mosaic-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: var(--azul-mosaico-overlay);
-
-    /* Centra el título vertical y horizontalmente */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    opacity: 0; /* Oculto por defecto */
-    transition: opacity 0.4s ease-in-out;
-}
-
-.mosaic-title {
-    color: var(--blanco);
-    font-family: var(--font-title);
-    font-size: 1.75rem;
-    font-weight: 700;
-    text-align: center;
-    padding: 1rem;
-    transform: translateY(20px); /* Efecto de entrada desde abajo */
-    transition: transform 0.4s ease;
-}
-
-/* --- 5. Efectos al Pasar el Ratón (Hover) --- */
-.mosaic-item:hover {
-    transform: translateY(-8px) scale(1.02);
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
-}
-
-/* La capa superpuesta aparece */
-.mosaic-item:hover .mosaic-overlay {
-    opacity: 1;
-}
-
-/* El título se desliza a su posición */
-.mosaic-item:hover .mosaic-title {
-    transform: translateY(0);
-}
-
-/* La imagen de fondo hace un ligero zoom */
-.mosaic-item:hover img {
-    transform: scale(1.1);
-}
-
-/* --- 6. Clases para agrupar (Spanning) --- */
-.span-h-2 {
-    grid-column: span 2; /* Ocupa 2 columnas de ancho */
-}
-.span-v-2 {
-    grid-row: span 2; /* Ocupa 2 filas de alto */
-}
-
-/* --- 7. Responsividad para Móviles --- */
-@media (max-width: 992px) {
-    .project-mosaic-grid {
-        /* 2 columnas en tablets */
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-@media (max-width: 576px) {
-    .project-mosaic-grid {
-        /* 1 columna en móviles */
-        grid-template-columns: 1fr;
-        grid-auto-rows: 280px; /* Un poco más de altura en vertical */
-    }
-
-    /* En móvil, hacemos que todas las imágenes ocupen 1 columna */
-.span-h-2 {
-        grid-column: span 1;
-    }
-}
-
 /*
 ====================================
-Estilo de Collage de Polaroids
+Tira de Imágenes Vertical
 ====================================
 */
 
-/* --- 1. Contenedor Principal del Collage --- */
-.collage-container {
-    position: relative;
+/* --- 1. Layout Principal de la Página de Inicio --- */
+.home-layout {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.home-intro-text {
+    flex: 1; /* Ocupa el espacio disponible */
+    min-width: 0; /* Ayuda a que flexbox funcione correctamente */
+}
+
+/* --- 2. Contenedor de la Tira de Imágenes --- */
+.image-strip-container {
+    flex-basis: 320px; /* Ancho base de la columna de imágenes */
+    flex-shrink: 0; /* Evita que la columna se encoja */
+    padding-top: 150px; /* Espacio para que la primera imagen no se corte */
+    padding-bottom: 150px;
+}
+
+/* --- 3. Estilo de cada Imagen en la Tira --- */
+.strip-item {
+    display: block;
+    position: relative; /* CRUCIAL para que z-index funcione */
+    background: var(--blanco);
+    padding: 12px;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(44, 62, 80, 0.15);
     width: 100%;
-    max-width: 900px;
-    height: 550px;
-    margin: 4rem auto;
+    
+    /* LA CLAVE DEL SOLAPAMIENTO: Margen inferior negativo */
+    margin-bottom: -200px; 
+    
+    transition: all 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
-/* --- 2. Estilo de cada "Polaroid" --- */
-.collage-item {
-    position: absolute;
-    background-color: var(--blanco);
-    padding: 10px;
-    padding-bottom: 45px;
-    border-radius: 4px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    transition: all 0.3s ease-in-out;
-    width: 30%;
-}
+/* Rotación inicial para cada imagen */
+.strip-item:nth-child(1) { transform: rotate(-4deg); }
+.strip-item:nth-child(2) { transform: rotate(3deg); }
+.strip-item:nth-child(3) { transform: rotate(-2deg); }
+.strip-item:nth-child(4) { transform: rotate(5deg); }
+.strip-item:nth-child(5) { transform: rotate(-3deg); }
+.strip-item:nth-child(6) { transform: rotate(2deg); }
 
-.collage-item img {
+
+.strip-item img {
     width: 100%;
     height: auto;
     display: block;
+    border-radius: 4px;
 }
 
-/* --- 3. Posicionamiento Manual de cada Polaroid --- */
-#item-1 { top: 5%; left: 5%; transform: rotate(-8deg); z-index: 1; }
-#item-2 { top: 25%; left: 20%; transform: rotate(4deg); z-index: 2; width: 28%; }
-#item-3 { top: 10%; left: 55%; transform: rotate(10deg); z-index: 1; width: 35%; }
-#item-4 { top: 45%; left: 45%; transform: rotate(-5deg); z-index: 3; width: 32%; }
-#item-5 { top: 50%; left: 10%; transform: rotate(6deg); z-index: 2; }
-#item-6 { top: 60%; left: 65%; transform: rotate(0deg); z-index: 2; width: 25%; }
-
-/* --- 4. Texto de la Polaroid --- */
-.collage-item .caption {
-    position: absolute;
-    bottom: 10px;
-    left: 10px;
-    right: 10px;
+.strip-item .caption {
     text-align: center;
+    padding-top: 8px;
 }
-.collage-item .caption h3 {
+.strip-item .caption h3 {
     margin: 0;
     font-family: 'Gochi Hand', cursive;
-    font-size: 1.1rem;
-    color: var(--azul-pizarra);
+    font-size: 1.2rem;
+    color: #333;
 }
 
-/* --- 5. Efecto Hover --- */
-.collage-item:hover {
-    transform: rotate(0deg) scale(1.2);
-    z-index: 10;
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+/* --- 4. El Efecto Hover Mágico --- */
+.strip-item:hover {
+    /* LA CLAVE PARA TRAER AL FRENTE */
+    z-index: 100; 
+
+    transform: scale(1.1) rotate(0deg);
+    box-shadow: 0 20px 40px rgba(44, 62, 80, 0.3);
 }
 
-/* --- 6. Responsividad para Móviles --- */
+/* --- 5. Responsividad --- */
 @media (max-width: 992px) {
-    .collage-container {
-        position: static;
-        height: auto;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 3rem;
+    .home-layout {
+        flex-direction: column; /* Apila el texto sobre las imágenes */
+        padding: 1rem;
     }
 
-    .collage-item {
-        position: static;
-        width: 60%;
-        max-width: 300px;
-        transform: rotate(0deg) !important;
+    .home-intro-text {
+        text-align: center;
     }
-
-    #item-1, #item-2, #item-3, #item-4, #item-5, #item-6 {
-        position: static;
-        top: auto;
-        left: auto;
+    
+    .image-strip-container {
+        padding-top: 0;
+        padding-bottom: 0;
+        width: 100%;
+        max-width: 350px; /* Limita el ancho en móvil */
     }
-
-    .collage-item:hover {
-        transform: scale(1.05);
+    
+    .strip-item {
+        /* En móvil, quitamos el solapamiento para que sea usable */
+        margin-bottom: 2rem;
     }
 }
-
-
