@@ -361,6 +361,7 @@ Estilos Mejorados para la Barra de Navegaci\u00f3n Lateral
   z-index: 9997;
   padding: 0 15px;
   background: var(--azul-pizarra);
+  font-family: 'Jersey 15', cursive;
   overflow-y: auto;
 }
 
@@ -415,7 +416,7 @@ Estilos Mejorados para la Barra de Navegaci\u00f3n Lateral
   padding: 0;
   font-weight: 600;
   text-align: center;
-  font-family: var(--font-title);
+  font-family: 'Barrio', cursive;
 }
 
 #header .profile h1 a {
@@ -461,7 +462,7 @@ Sidebar Refinements: Social Links & Language Switcher
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  font-family: Montserrat, sans-serif;
+  font-family: 'Jersey 15', cursive;
   font-weight: 700;
   font-size: 14px;
   border: 2px solid #5a6d7e;
@@ -527,10 +528,7 @@ body.lang-en-active .lang-es {
   transition: all 0.3s ease; /* Transici\u00f3n suave */
   font-size: 15px;
   border-radius: 5px;
-}
-
-  color: #fff;
-  background: rgba(255, 255, 255, 0.1);
+  text-decoration: none;
 }
 
 .nav-menu a i {
