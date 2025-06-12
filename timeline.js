@@ -91,59 +91,33 @@ document.addEventListener('DOMContentLoaded', function() {
     ];
 
     // --- 2. RENDERIZADO DE LA LÍNEA DE TIEMPO ---
-    const timelineContainer = document.getElementById('timeline-v2');
-    const today = new Date();
-    const endYear = today.getFullYear();
-    const startYear = 2009;
-    const totalYears = endYear - startYear + 1;
-
-    // Calcular la posición vertical para cada barra para evitar solapamientos
-    let verticalPosition = 0;
-    const verticalIncrement = 60; // Espacio vertical entre barras (en px)
-    const yearHeight = 150; // Altura visual para cada año en la línea de tiempo
-
-    timelineContainer.style.height = `${totalYears * yearHeight}px`;
+    const timelineContainer = document.querySelector('.timeline-items');
 
     jobsData.forEach(job => {
-        const jobBar = document.createElement('div');
-        jobBar.className = 'job-bar';
-        jobBar.dataset.jobId = job.id;
+        const item = document.createElement('div');
+        item.className = 'timeline-item';
+        item.dataset.jobId = job.id;
 
-        // Calcular fechas
-        const jobStartDate = new Date(job.startDate);
-        const jobEndDate = (job.endDate === 'Presente') ? today : new Date(job.endDate);
+        const dot = document.createElement('div');
+        dot.className = 'timeline-dot';
+        dot.textContent = new Date(job.startDate).getFullYear();
 
-        // Calcular posición y altura
-        const topPosition = (jobStartDate.getFullYear() - startYear + (jobStartDate.getMonth() / 12)) * yearHeight;
-        const barHeight = (jobEndDate.getTime() - jobStartDate.getTime()) / (1000 * 60 * 60 * 24 * 365.25) * yearHeight;
-
-        jobBar.style.top = `${topPosition}px`;
-        jobBar.style.height = `${Math.max(barHeight, 20)}px`; // Altura mínima
-        jobBar.style.left = `${verticalPosition}px`;
-
-        jobBar.innerHTML = `
-            <div class="job-bar-title">${job.title}</div>
-            <div class="job-bar-company">${job.company}</div>
+        const card = document.createElement('div');
+        card.className = 'cv-card job-card';
+        card.innerHTML = `
+            <h3>${job.company}</h3>
+            <p class="job-location">${job.location}</p>
+            <p class="job-title">${job.title}</p>
+            <p class="job-date">${new Date(job.startDate).getFullYear()} - ${job.endDate === 'Presente' ? 'Presente' : new Date(job.endDate).getFullYear()}</p>
+            <ul>
+                ${job.tasks.map(task => `<li>${task}</li>`).join('')}
+            </ul>
         `;
-        
-        timelineContainer.appendChild(jobBar);
-        
-        // Incrementar la posición para la siguiente barra para evitar solapamientos visuales
-        verticalPosition += 160;
-         if (verticalPosition > 600) { // Resetear para que no se haga demasiado ancho
-             verticalPosition = 0;
-         }
+
+        item.appendChild(dot);
+        item.appendChild(card);
+        timelineContainer.appendChild(item);
     });
-    
-    // Añadir los marcadores de año
-    const yearsAxis = document.getElementById('timeline-years');
-    for (let i = startYear; i <= endYear; i++) {
-        const yearMarker = document.createElement('div');
-        yearMarker.className = 'year-marker';
-        yearMarker.textContent = i;
-        yearMarker.style.top = `${(i - startYear) * yearHeight}px`;
-        yearsAxis.appendChild(yearMarker);
-    }
 
 
     // --- 3. LÓGICA DE LA VENTANA MODAL ---
@@ -152,10 +126,10 @@ document.addEventListener('DOMContentLoaded', function() {
     const closeModalButton = modal.querySelector('.modal-close');
 
     timelineContainer.addEventListener('click', function(event) {
-        const bar = event.target.closest('.job-bar');
-        if (!bar) return;
+        const item = event.target.closest('.timeline-item');
+        if (!item) return;
 
-        const jobId = bar.dataset.jobId;
+        const jobId = item.dataset.jobId;
         const jobData = jobsData.find(j => j.id === jobId);
 
         if (jobData) {
