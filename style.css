@@ -930,6 +930,9 @@ Estilo de Fotos en un Tendedero (Clothesline)
         /* Simpler hover for mobile */
         transform: scale(1.05) !important;
     }
+    .photo-card .caption h3 {
+        font-family: 'Jersey 25 Charted', cursive;
+    }
 }
 
 
